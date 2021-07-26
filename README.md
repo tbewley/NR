@@ -15,7 +15,7 @@ PART 1: FUNDAMENTALS<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap03.pdf">Chapter 3: Iterative solution methods </a>                      (<a href="https://github.com/tbewley/NR/tree/main/chap03">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap04.pdf">Chapter 4: Linear algebra</a>                 (<a href="https://github.com/tbewley/NR/tree/main/chap04">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap05.pdf">Chapter 5: Spectral methods, fast transforms, and the Dirac delta</a>     (<a href="https://github.com/tbewley/NR/tree/main/chap05">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/NR_chap06.pdf">Chapter 6: Statistical representations</a>  (<a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR><BR>
+<a href="http://robotics.ucsd.edu/NR/NR_chap06.pdf">Chapter 6: Statistical representations</a>  (<a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap06.pdf">Chapter 7: Data manipulation: sorting, interpolation, & compression</a>  (<a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR><BR>
 
 PART 2: SIMULATION<BR>
@@ -33,7 +33,7 @@ Chapter 16: Derivative-based minimization</a>           (<a href="https://github
 
 PART 4: CONTROL<BR>
 Chapter 17: Linear systems: state-space methods</a>                  (<a href="https://github.com/tbewley/NR/tree/main/chap17">code</a>)<BR>
-Chapter 18: State-space & model-predictive control design</a>   (<a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>) <BR><BR>
+Chapter 18: State-space & model-predictive control design</a>   (<a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>) <BR>
 Chapter 19: State estimation & adaptive observation</a>              (<a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>) <BR><BR>
 
 SUPPLEMENT<BR>
