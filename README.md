@@ -11,7 +11,7 @@ To suggest a bug fix, please submit a <a href="https://docs.github.com/en/github
 All files Copyright 2021 by Thomas Bewley, distributed under <a href="https://github.com/tbewley/NR/blob/main/LICENSE">BSD 3-Clause License</a>.<BR><BR>
 PART 1: FUNDAMENTALS<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap01.pdf">Chapter 1: Notation and definitions</a>                         (<a href="https://github.com/tbewley/NR/tree/main/chap01">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/NR_chap02.pdf">Chapter 2: Direct solution of linear equations, and the LU and QR decompositions</a>        (<a href="https://github.com/tbewley/NR/tree/main/chap02">code</a>)<BR>
+<a href="http://robotics.ucsd.edu/NR/NR_chap02.pdf">Chapter 2: Direct solution of linear equations, and the LU & QR decompositions</a>        (<a href="https://github.com/tbewley/NR/tree/main/chap02">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap03.pdf">Chapter 3: Iterative solution methods </a>                      (<a href="https://github.com/tbewley/NR/tree/main/chap03">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap04.pdf">Chapter 4: Linear algebra</a>                 (<a href="https://github.com/tbewley/NR/tree/main/chap04">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/NR_chap05.pdf">Chapter 5: Spectral methods, fast transforms, and the Dirac delta</a>     (<a href="https://github.com/tbewley/NR/tree/main/chap05">code</a>)<BR>
