@@ -10,39 +10,53 @@ To suggest a bug fix, please submit a <a href="https://docs.github.com/en/github
   
 All files Copyright 2021 by Thomas Bewley, distributed under <a href="https://github.com/tbewley/NR/blob/main/LICENSE">BSD 3-Clause License</a>.<BR><BR>
 PART 1: FUNDAMENTALS<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 1: Notation and definitions</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap01">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 2: Direct solution of linear equations, and the LU & QR decompositions</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap02">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 3: Iterative solution methods </a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap03">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 4: Linear algebra</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap04">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 5: Spectral methods, fast transforms, and the Dirac delta</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap05">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 6: Statistical representations</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR>
-<a href="http://robotics.ucsd.edu/NR/">Chapter 7: Data manipulation: sorting, interpolation, & compression</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap07">code</a>)<BR>
+Chapter 1: Notation and definitions
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap01">code</a>)<BR>
+Chapter 2: Direct solution of linear equations, and the LU & QR decompositions
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap02">code</a>)<BR>
+Chapter 3: Iterative solution methods
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap03">code</a>)<BR>
+Chapter 4: Linear algebra
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap04">code</a>)<BR>
+Chapter 5: Spectral methods, fast transforms, and the Dirac delta
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap05">code</a>)<BR>
+Chapter 6: Statistical representations
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR>
+Chapter 7: Data manipulation: sorting, interpolation, & compression
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap07">code</a>)<BR>
 
 PART 2: SIMULATION<BR>
-Chapter 8: Differentiation</a>                         (<a href="https://github.com/tbewley/NR/tree/main/chap08">code</a>)<BR>
-Chapter 9: Integration of functions</a>                (<a href="https://github.com/tbewley/NR/tree/main/chap09">code</a>)<BR>
-Chapter 10: Ordinary differential equations</a>        (<a href="https://github.com/tbewley/NR/tree/main/chap10">code</a>)<BR>
-Chapter 11: Partial differential equations</a>         (<a href="https://github.com/tbewley/NR/tree/main/chap11">code</a>)<BR>
-Chapter 12: High performance computing</a>             (<a href="https://github.com/tbewley/NR/tree/main/chap12">code</a>)<BR>
-Chapter 13: Case study: turbulence simulation</a>      (<a href="https://github.com/tbewley/NR/tree/main/chap13">code</a>)<BR>
+Chapter 8: Differentiation                        
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap08">code</a>)<BR>
+Chapter 9: Integration of functions               
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap09">code</a>)<BR>
+Chapter 10: Ordinary differential equations       
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap10">code</a>)<BR>
+Chapter 11: Partial differential equations        
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap11">code</a>)<BR>
+Chapter 12: High performance computing            
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap12">code</a>)<BR>
+Chapter 13: Case study: turbulence simulation     
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap13">code</a>)<BR>
 
 PART 3: OPTIMIZATION<BR>
-Chapter 14: Linear programming</a>                     (<a href="https://github.com/tbewley/NR/tree/main/chap14">code</a>)<BR>
-Chapter 15: Derivative-free minimization</a>           (<a href="https://github.com/tbewley/NR/tree/main/chap15">code</a>)<BR>
-Chapter 16: Derivative-based minimization</a>          (<a href="https://github.com/tbewley/NR/tree/main/chap16">code</a>)<BR>
+Chapter 14: Linear programming                    
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap14">code</a>)<BR>
+Chapter 15: Derivative-free minimization          
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap15">code</a>)<BR>
+Chapter 16: Derivative-based minimization         
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap16">code</a>)<BR>
 
 PART 4: CONTROL<BR>
-Chapter 17: Linear systems: state-space methods</a>             (<a href="https://github.com/tbewley/NR/tree/main/chap17">code</a>)<BR>
-Chapter 18: State-space & model-predictive control design</a>   (<a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>)<BR>
-Chapter 19: State estimation & adaptive observation</a>         (<a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>)<BR>
+Chapter 17: Linear systems: state-space methods            
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap17">code</a>)<BR>
+Chapter 18: State-space & model-predictive control design  
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>)<BR>
+Chapter 19: State estimation & adaptive observation        
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>)<BR>
 
 SUPPLEMENT<BR>
-Appendix A: Programming: a brief introduction</a>      (<a href="https://github.com/tbewley/NR/tree/main/chapAA">code</a>)<BR>
-Appendix B: Assorted mathematical formulations</a>     (<a href="https://github.com/tbewley/NR/tree/main/chapAB">code</a>)<BR>
+Appendix A: Programming: a brief introduction     
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chapAA">code</a>)<BR>
+Appendix B: Assorted mathematical formulations    
+  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chapAB">code</a>)<BR>
