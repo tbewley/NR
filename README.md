@@ -23,7 +23,7 @@ PART 1: FUNDAMENTALS<BR>
 <a href="http://robotics.ucsd.edu/NR/">Chapter 6: Statistical representations</a>
   (<a href="https://github.com/tbewley/NR/tree/main/chap06">code</a>)<BR>
 <a href="http://robotics.ucsd.edu/NR/">Chapter 7: Data manipulation: sorting, interpolation, & compression</a>
-  (<a href="https://github.com/tbewley/NR/tree/main/chap07">code</a>)<BR><BR>
+  (<a href="https://github.com/tbewley/NR/tree/main/chap07">code</a>)<BR>
 
 PART 2: SIMULATION<BR>
 Chapter 8: Differentiation</a>                         (<a href="https://github.com/tbewley/NR/tree/main/chap08">code</a>)<BR>
@@ -31,7 +31,7 @@ Chapter 9: Integration of functions</a>                (<a href="https://github.
 Chapter 10: Ordinary differential equations</a>        (<a href="https://github.com/tbewley/NR/tree/main/chap10">code</a>)<BR>
 Chapter 11: Partial differential equations</a>         (<a href="https://github.com/tbewley/NR/tree/main/chap11">code</a>)<BR>
 Chapter 12: High performance computing</a>             (<a href="https://github.com/tbewley/NR/tree/main/chap12">code</a>)<BR>
-Chapter 13: Case study: turbulence simulation</a>      (<a href="https://github.com/tbewley/NR/tree/main/chap13">code</a>)<BR><BR>
+Chapter 13: Case study: turbulence simulation</a>      (<a href="https://github.com/tbewley/NR/tree/main/chap13">code</a>)<BR>
 
 PART 3: OPTIMIZATION<BR>
 Chapter 14: Linear programming</a>                     (<a href="https://github.com/tbewley/NR/tree/main/chap14">code</a>)<BR>
@@ -40,8 +40,8 @@ Chapter 16: Derivative-based minimization</a>          (<a href="https://github.
 
 PART 4: CONTROL<BR>
 Chapter 17: Linear systems: state-space methods</a>             (<a href="https://github.com/tbewley/NR/tree/main/chap17">code</a>)<BR>
-Chapter 18: State-space & model-predictive control design</a>   (<a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>) <BR>
-Chapter 19: State estimation & adaptive observation</a>         (<a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>) <BR><BR>
+Chapter 18: State-space & model-predictive control design</a>   (<a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>)<BR>
+Chapter 19: State estimation & adaptive observation</a>         (<a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>)<BR>
 
 SUPPLEMENT<BR>
 Appendix A: Programming: a brief introduction</a>      (<a href="https://github.com/tbewley/NR/tree/main/chapAA">code</a>)<BR>
