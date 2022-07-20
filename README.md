@@ -35,7 +35,3 @@ PART 4: CONTROL<BR>
 Chapter 17: Linear systems: state-space methods (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap17">code</a>)<BR>
 Chapter 18: State-space & model-predictive control design (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap18">code</a>)<BR>
 Chapter 19: State estimation & adaptive observation (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap19">code</a>)<BR>
-
-SUPPLEMENT<BR>
-Appendix A: Programming: a brief introduction (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chapAA">code</a>)<BR>
-Appendix B: Assorted mathematical formulations (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chapAB">code</a>)<BR>
