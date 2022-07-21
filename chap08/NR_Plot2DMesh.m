@@ -1,8 +1,8 @@
 function Plot2DMesh(z,fig,II,JJ)
 % function Plot2DMesh(z,fig,II,JJ)
 % Plot a structured II by JJ mesh given by real and imaginary parts of z(1:II,1:JJ).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap08">Chapter 8</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 % See also Stretch1DMesh.  Verify with: Plot2DMeshTest.
 
 figure(fig); hold on; 

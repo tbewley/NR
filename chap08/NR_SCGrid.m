@@ -2,7 +2,7 @@ function w=NR_SCGrid(c,n,cin,cout,i1,i2,x,steps,z,II,JJ)
 % function w=NR_SCGrid(c,n,cin,cout,i1,i2,x,steps,z,II,JJ)
 % Optimize the x_i and M of the Schwartz-Christoffel transformation in order to map onto
 % the specified corners c_i, then map (conformally) the specified z grid to the w plane.
-% Numerical Renaissance codebase, Appendix B, https://github.com/tbewley/NR
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
 % Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 % [Code was written in ForTran77 by T Bewley in 1990 at the von Karman Institute for Fluid
 % Dynamics, and converted to Matlab syntax in 2012 for the Numerical Renaissance Codebase.]
@@ -26,7 +26,7 @@ for i=1:II % USING THE OPTIMIZED x_i AND M, MAP AN ORTHOGONAL GRID FROM z-PLANE 
    if i==1, w(i,1)=0.0; else, w(i,1)=w(i-1,1)+MarchSC(z(i-1,1),z(i,1),n,M,x,a,steps); end
    for j=2:JJ, w(i,j)=w(i,j-1)+MarchSC(z(i,j-1),z(i,j),n,M,x,a,steps); end
 end
-end % function SCGrid
+end % function NR_SCGrid
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dw=MarchSC(z1,z2,n,M,x,a,N)
 dw=0; dz=(z2-z1)/N; for i=1:N, dw=dw+MarchSConestep(z1+dz*(i-1),z1+dz*i,n,M,x,a); end

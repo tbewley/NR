@@ -1,9 +1,9 @@
-% script <a href="matlab:NR_CMGridTest">CMGridTest</a>
+% script <a href="matlab:NR_CMGridTest">NR_CMGridTest</a>
 % Compute a conformal mapping from a Cartesian grid in the upper half-plane to the region
 % above a unit step.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section B.6.2.2.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchapAB">Appendix B</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also OrthGridTest, SCGridTest.
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
+% See also NR_OrthGridTest, NR_SCGridTest.
 
 clear; close all; g.x0=-9; g.x1=13; g.y1=3; II=131; JJ=31;
 z=NR_OrthGrid(II,JJ,'Cartesian',g,0,0,0,0); NR_Plot2DMesh(z,1,II,JJ)

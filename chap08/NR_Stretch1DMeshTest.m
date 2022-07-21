@@ -1,7 +1,7 @@
 % script <a href="matlab:NR_Stretch1DMeshTest">NR_Stretch1DMeshTest</a>
 % Test <a href="matlab:help NR_Stretch1DMesh">NR_Stretch1DMesh</a> by constructing a few interesting 1D grids.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap08">Chapter 8</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 % See also NR_Plot2DMeshTest.
 
 clear; x=[0:.1:1]; n=length(x); a=ones(n,1); off=1.5; xmin=0; xmax=1; close all
@@ -51,4 +51,4 @@ set(H2(1),'Color','k');
 set(H1,'LineStyle','-'); set(H2,'LineStyle','-.'); 
 axis on; % print -depsc stretchfn_cos.eps
 
-% end script Stretch1DMeshTest
+% end script NR_Stretch1DMeshTest

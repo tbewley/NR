@@ -2,7 +2,7 @@
 % Test <a href="matlab:help NR_SCGrid">NR_SCGrid</a> by producing a C-grid, an O-grid, and an H-grid around a NACA0012 airfoil.
 % Numerical Renaissance codebase, Appendix B, https://github.com/tbewley/NR
 % Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
-% See also CMGridTest.  Depends on OrthGrid.
+% See also NR_CMGridTest.  Depends on NR_OrthGrid.
 
 clear; close all; cin=-1; cout=2; 
 c=[0.000000+0.000000*i,0.000600+0.004318*i,0.001248+0.006198*i,0.001947+0.007713*i,...

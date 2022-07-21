@@ -1,4 +1,4 @@
-% script <a href="matlab:TaylorTableTest">NR_TaylorTableTest</a>
+% script <a href="matlab:NR_TaylorTableTest">NR_TaylorTableTest</a>
 % Test <a href="matlab:help TaylorTable">NR_TaylorTable</a> by constructing various differentiation formulae.
 % Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
 % Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 

@@ -1,9 +1,9 @@
 function z=NR_OrthGrid(II,JJ,type,g,c0x,c1x,c0y,c1y)
 % function z=NR_OrthGrid(II,JJ,type,g,c0x,c1x,c0y,c1y)
 % Generate a few convenient locally-orthogonal 2D grids.
-% Numerical Renaissance codebase, Appendix B, https://github.com/tbewley/NR
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
 % Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
-% See also CMGridTest.  Depends on Stretch1DMesh.  Verify with OrthGridTest.
+% See also NR_CMGridTest.  Verify with NR_OrthGridTest.
 
 x=NR_Stretch1DMesh([0:1/(II-1):1],'p',0,1,c0x,c1x);
 y=NR_Stretch1DMesh([0:1/(JJ-1):1],'p',0,1,c0y,c1y);

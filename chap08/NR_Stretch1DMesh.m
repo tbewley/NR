@@ -1,12 +1,12 @@
-function x=Stretch1DMesh(x,kind,xmin,xmax,c0,c1)
-% function x=Stretch1DMesh(x,kind,xmin,xmax,c0,c1)
+function x=NR_Stretch1DMesh(x,kind,xmin,xmax,c0,c1)
+% function x=NR_Stretch1DMesh(x,kind,xmin,xmax,c0,c1)
 % Strech a vector x distributed over [0,1] according to (8.11a) if kind='h', (8.11b) if
 % kind='p', and (8.11c) if kind='c', then scale to cover the domain [xmin,xmax].
 % For 'h' (hyperbolic tangent) stretching, small values of c0>0 make a more uniform mesh.
 % For 'p' (polynomial) stretching, increasing c0,c1 increases clustering near xmin,xmax.
 % For 'c' (cosine) stretching, we "correct" the orientation, so gridpoints increase in x.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap08">Chapter 8</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% Numerical Renaissance codebase, Chapter 8, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 % See also Plot2DMesh.  Verify with: Stretch1DMeshTest.
 
 xint=xmax-xmin; switch kind
@@ -23,4 +23,4 @@ xint=xmax-xmin; switch kind
      case 31,x=-4*x.^5+15*x.^4-20*x.^3+10*x.^2; case 33,x=-20*x.^7+70*x.^6-84*x.^5+35*x.^4;
    end, x=xmin+xint*x;
 end
-end % function Stretch1DMesh
+end % function NR_Stretch1DMesh
