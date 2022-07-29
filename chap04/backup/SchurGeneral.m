@@ -1,15 +1,15 @@
-function [A,varargout] = SchurGeneral(A,varargin)
-% [T,U]=SchurGeneral(A) for an MxN complex A with |lambda_1|>|lambda_2|>... 
+function [A,varargout] = NR_SchurGeneral(A,varargin)
+% [T,U]=NR_SchurGeneral(A) for an MxN complex A with |lambda_1|>|lambda_2|>... 
 % computes an uppter tridiagonal T and a unitary U such that A = U T U^H.  
-% [lambda]=SchurGeneral(A) only computes T, then only returns the eigenvalues.
-% After an initial Hessenberg decomposition, several shifted QR steps are taken using
-% the QRFastGivensHessenberg algorithm.  If only computing the eigenvalues, T is
+% [lambda]=NR_SchurGeneral(A) only computes T, then only returns the eigenvalues.
+% After an initial NR_Hessenberg decomposition, several shifted QR steps are taken using
+% the NR_QRFastGivensHessenberg algorithm.  If only computing the eigenvalues, T is
 % deflated when T(m,m) converges; if not, the shift is stepped from (m,m) to (2,2).
 n=size(A,1);  m=n;
-if nargin==1, if nargout<=1; A=Hessenberg(A); else; [A,U]=Hessenberg(A); end, end
+if nargin==1, if nargout<=1; A=NR_Hessenberg(A); else; [A,U]=NR_Hessenberg(A); end, end
 for step=1:20*n    % (Note that loop should break well before step=20*n.)
   d=ones(n,1); mu=A(m,m); for i=1:m; A(i,i)=A(i,i)-mu; end   % Initialize d and shift A.
-  for i=1:m-1     % Apply the same algorithm as in QRFastGivensHessenberg.
+  for i=1:m-1     % Apply the same algorithm as in NR_QRFastGivensHessenberg.
     [A(:,i:n),type(i),alpha(i),beta(i),d([i i+1])]=FastGivens(A(:,i:n),i,i+1,d(i),d(i+1));
   end
   for i=1:m-1     % Apply the postmultiplications directly to A (thus computing R*Q)
@@ -32,7 +32,7 @@ for step=1:20*n    % (Note that loop should break well before step=20*n.)
     for i=1:m,  U(:,i)=U(:,i)*s(i);  end                      % Scale U
   end
   if abs(A(m,m-1))< 1e-12*(abs(A(m,m))+abs(A(m-1,m-1)))       % If A(m,m) converged...
-    if nargout<=1, if m>2, A(1:n-1,1:n-1)=SchurGeneral(A(1:n-1,1:n-1),1); end; % Deflate
+    if nargout<=1, if m>2, A(1:n-1,1:n-1)=NR_SchurGeneral(A(1:n-1,1:n-1),1); end; % Deflate
                    if nargin==1, A=diag(A); end;              % Define output
                    break
     else,          if m>2, m=m-1;                      % Shift by next diagonal element
@@ -40,4 +40,4 @@ for step=1:20*n    % (Note that loop should break well before step=20*n.)
     end
   end
 end
-% end function SchurGeneral.m
+% end function NR_SchurGeneral.m

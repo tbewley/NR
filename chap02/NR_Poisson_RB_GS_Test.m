@@ -1,12 +1,12 @@
 function NR_Poisson_RB_GS_Test
 % function NR_Poisson_RB_GS_Test
-% Apply 50 steps of red/black Gauss-Seidel "smoothing" with a (checkerboard) A matrix 
+% Apply 50 steps of red/black NR_Gauss-Seidel "smoothing" with a (checkerboard) A matrix 
 % from a SOFD approximation of the 2D Poisson equation on a square grid (Example 3.3).
 % The set of points updated first, which we label as "red", includes the corners.
 % Numerical Renaissance codebase, Chapter 2, https://github.com/tbewley/NR
 % Copyright 2021 by Thomas Bewley, distributed under BSD 3-Clause License. 
 
-disp('Now applying 50 steps of red/black Gauss-Seidel smoothing to a checkerboard system.')
+disp('Now applying 50 steps of red/black NR_Gauss-Seidel smoothing to a checkerboard system.')
 n=32; L=1; h=L/n; z=[2:2:n]*h; b=zeros(n+1); x=zeros(n+1); b(2:n,2:n)=randn(n-1); close all
 for i=1:50
   [x]=NR_Poisson_RB_GS_Smooth(x,b,n,h);

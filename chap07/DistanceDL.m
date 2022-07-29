@@ -1,11 +1,11 @@
-function dist=DistanceDL(a,b,W,verbose)
-% function dist=DistanceDL(a,b,W,verbose)
+function dist=NR_DistanceDL(a,b,W,verbose)
+% function dist=NR_DistanceDL(a,b,W,verbose)
 % Compute the weighted Damerau-Levenshtein distance between two strings; {W.D,W.I,W.S,W.E}
 % are the weights on Deletion, Insertion, Substitution, and Exchange (of adjacent symbols
 % only), all taken as 1 by default.  Implements Algorithm S of Lowrance & Wagner (1975).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.6.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also DistanceOSA.  Verify with DistanceDLtest.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
+% See also NR_DistanceOSA.  Verify with NR_DistanceDLtest.
 
 Al=length(a); Bl=length(b); if Al==0 | Bl==0, dist=Al+Bl; return, end
 if nargin<3, W.D=1; W.I=1; W.S=1; W.C=1; W.E=1; end, INF=Al+Bl+1; H=INF*ones(Al+2,Bl+2);
@@ -27,7 +27,7 @@ for i=1:Al, DB=0; for j=1:Bl, i1=DA(B(j)); j1=DB;
   H(i+2,j+2)=min([ H(i+1,j+2)+W.D, H(i+2,j+1)+W.I, H(i+1,j+1)+d, ...  % Simple D, I, or S.
       H(i1+1,j1+1)+(i-i1-1)*W.D+W.E+(j-j1-1)*W.I]);  % <- Operation *, as described above.
 end, DA(A(i))=i; end, dist=H(Al+2,Bl+2);  if nargin>3, H, end
-end % function DistanceDL
+end % function NR_DistanceDL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function b=Unique(a)  % A (nonalphebatized) replacement for Matlab's 'unique' fn.
 b=[]; for i=1:length(a), t=StrFind(b,a(i)); if length(t)==0, b=[b a(i)]; end, end

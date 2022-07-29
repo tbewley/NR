@@ -1,22 +1,22 @@
-function [D,index]=OddEvenMergeSort(D,v,a,n)
-% function [D,index]=OddEvenMergeSort(D,v,a,n)
+function [D,index]=NR_OddEvenNR_MergeSort(D,v,a,n)
+% function [D,index]=NR_OddEvenNR_MergeSort(D,v,a,n)
 % Reorder D based on the n=2^s elements in its first column using an odd/even merge sort.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.2.2.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also InsertionSort, BlockInsertionSort, MergeSort, QuickSort, HeapSort, CocktailSort,
-% BitonicSort.  Verify with OddEvenMergeSortTest.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
+% See also NR_InsertionSort, NR_BlockInsertionSort, NR_MergeSort, NR_QuickSort, NR_HeapSort, NR_CocktailSort,
+% NR_BitonicSort.  Verify with NR_OddEvenNR_MergeSortTest.
 
 if nargin==3, n=a; a=1; end, if nargout==2, D=[D, [1:n]']; end
 if n>1, m=round(n/2);
-  D=OddEvenMergeSort(D,v,a,m);
+  D=NR_OddEvenNR_MergeSort(D,v,a,m);
   if v, plot(D(:,1),'kx'), axis([1 size(D,1) -1 1]), pause(0.1), end
-  D=OddEvenMergeSort(D,v,a+m,m);
+  D=NR_OddEvenNR_MergeSort(D,v,a+m,m);
   if v, plot(D(:,1),'kx'), axis([1 size(D,1) -1 1]), pause(0.1), end
   D=OddEvenMerge(D,a,n,1);
   if v, plot(D(:,1),'kx'), axis([1 size(D,1) -1 1]), pause(0.1), end
 end
 if nargout==2, index=round(D(:,end)); D=D(:,1:end-1); end
-end % function OddEvenMergeSort
+end % function NR_OddEvenNR_MergeSort
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function D=OddEvenMerge(D,a,n,r)   % r is the distance of elements to be compared
 m=r*2; if m<n

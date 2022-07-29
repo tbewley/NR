@@ -8,7 +8,8 @@ To set your Matlab/Octave path in a way that will streamline your testing of the
 please install <a href="https://github.com/tbewley/NR/blob/main/NR_path_init.m">NR_path_init.m</a> as specified in its comments.<BR>
 To suggest a bug fix, please submit a <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a>.
   
-All files Copyright 2021 by Thomas Bewley, distributed under <a href="https://github.com/tbewley/NR/blob/main/LICENSE">BSD 3-Clause License</a>.<BR><BR>
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+All files Copyright 2022 by Thomas Bewley, distributed under <a href="https://github.com/tbewley/NR/blob/main/LICENSE">BSD 3-Clause License</a>.<BR><BR>
 PART 1: FUNDAMENTALS<BR>
 Chapter 1: Notation and definitions    (<a href="http://robotics.ucsd.edu/NR/">text</a>,  <a href="https://github.com/tbewley/NR/tree/main/chap01">code</a>)<BR>
 Chapter 2: Direct solution of linear equations, and the LU & QR decompositions  (<a href="http://robotics.ucsd.edu/NR/">text</a>, <a href="https://github.com/tbewley/NR/tree/main/chap02">code</a>)<BR>

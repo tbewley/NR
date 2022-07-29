@@ -1,7 +1,7 @@
-% script <a href="matlab:PODtest">PODtest</a>
+% script <a href="matlab:NR_PODtest">NR_PODtest</a>
 % Test the POD algorithm on a random set of periodic training data with a given spectra.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.5.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 
 L=2*pi; m=200; n1=30; n2=3; n=n1+n2; kmax=100; x=[0:L/(m-1):L]'; p=6; A=zeros(m,n);  
 for j=1:n, for k=1:kmax      % Initialize n vectors (n1 for training, n2 for testing)
@@ -19,4 +19,4 @@ for j=1:n2;
      r=r+U(:,k)*S(k,k)*V(j,k); if k==1, plot(x,r,'k--'); else, plot(x,r,'-.'), end
    end, plot(x,r,'k-'), axis([0 L -0.8 0.8])
 end
-% end script PODtest
+% end script NR_PODtest

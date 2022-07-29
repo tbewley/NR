@@ -1,7 +1,7 @@
-function [A,Q] = QRFastGivensHessenberg(A) 
-% function [A,Q] = QRFastGivensHessenberg(A) 
+function [A,Q] = NR_QRFastGivensHessenberg(A) 
+% function [A,Q] = NR_QRFastGivensHessenberg(A) 
 % Compute a QR decomposition A=QR by applying a sequence of min(n,m-1) fast Givens
-% transforms to an mxn upper Hessenberg matrix A to reduce it to upper triangular form.
+% transforms to an mxn upper NR_Hessenberg matrix A to reduce it to upper triangular form.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 2.3.4.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap04">Chapter 2</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
 % Depends on <a href="matlab:help FastGivensCompute">FastGivensCompute</a>, <a href="matlab:help FastGivens">FastGivens</a>.
@@ -13,4 +13,4 @@ for i=1:min(n,m-1)
   [Q]=FastGivens(Q,a,b,gamma,donothing,i,i+1,1,m,'R');
 end
 for i=1:m,  dt=1/sqrt(d(i));  Q(:,i)=Q(:,i)*dt;  A(i,:)=A(i,:)*dt;  end 
-end % function QRFastGivensHessenberg
+end % function NR_QRFastGivensHessenberg

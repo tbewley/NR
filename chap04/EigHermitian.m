@@ -1,12 +1,12 @@
-function [lam] = EigHermitian(A)
-% function [lam] = EigHermitian(A)
+function [lam] = NR_EigHermitian(A)
+% function [lam] = NR_EigHermitian(A)
 % Compute the eigenvalues of a Hermitian (or, if real, symmetric) matrix A.
-% Leveraging the fact that Hessenberg returns a tridiagonal matrix, the QR algorithm
+% Leveraging the fact that NR_Hessenberg returns a tridiagonal matrix, the QR algorithm
 % with Wilkenson shifts is applied to the tridiagonal matrix T=tridiag[a,b,c] at each step.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 4.4.5.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap04">Chapter 4</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
 
-A=Hessenberg(A); n=size(A,1); q=n; tol=1e-13;    % Note: we move the 3 nonzero diagonals to
+A=NR_Hessenberg(A); n=size(A,1); q=n; tol=1e-13;    % Note: we move the 3 nonzero diagonals to
 a=[0; diag(A,-1)]; b=diag(A); c=[diag(A,1); 0];  % vectors to speeed the memory access.
 while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elements of T.
   for i=1:n-1; if abs(a(i+1))< tol*(abs(b(i))+abs(b(i+1))); a(i+1)=0; end; end
@@ -22,5 +22,5 @@ while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elem
     c(i)   = conj(ss(i))*b(i)  +conj(cc(i))*c(i);              % Eqn (1.12b), column k=i+1
     b(i+1) =                    conj(cc(i))*b(i+1); b(i)=temp; 
   end, end,  a(2:n)=conj(c(1:n-1)); b=b+mu;                    % Unshift A
-end, lam=EigSort(real(b));            % Sort, and remove any error in the imaginary parts.
-end % function EigHermitian
+end, lam=NR_EigSort(real(b));            % Sort, and remove any error in the imaginary parts.
+end % function NR_EigHermitian

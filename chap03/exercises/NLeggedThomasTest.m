@@ -1,4 +1,4 @@
-% script NLeggedThomasTest                           % Numerical Renaissance Codebase 1.0
+% script NR_NLeggedThomasTest                           % Numerical Renaissance Codebase 1.0
 % Test NLeggedThomas.m on an n-legged problem with random coefficients.
 % Numerical Renaissance Codebase 1.0, Chapter 2; see text for copyleft info.
 
@@ -15,4 +15,4 @@ for mm=1:m
   z(n+1,1) = y(mm);
   norm(d*z - e(mm))
 end
-% end script NLeggedThomasTest
+% end script NR_NLeggedThomasTest

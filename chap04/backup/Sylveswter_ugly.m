@@ -1,4 +1,4 @@
-function [X]=Sylvester(T11,T22,T12,gamma)
+function [X]=NR_Sylvester(T11,T22,T12,gamma)
 
 [junk M]=size(T11);  [junk N]=size(T22);
 T12orig=T12;

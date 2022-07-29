@@ -1,11 +1,11 @@
-function [f]=BicubicSpline(x,y,xd,yd,fd,fx,fy,fxy,Ainv)
-% function [f]=BicubicSpline(x,y,xd,yd,fd,fx,fy,fxy,Ainv)
+function [f]=NR_BicubicSpline(x,y,xd,yd,fd,fx,fy,fxy,Ainv)
+% function [f]=NR_BicubicSpline(x,y,xd,yd,fd,fx,fy,fxy,Ainv)
 % Given the grid of datapoints {xd,yd,fd}, as well as the derivatives {fx,fy,fxy} on this
-% same grid and Ainv (as computed by BicubicSplineSetup), determine the bicubic spline
+% same grid and Ainv (as computed by NR_BicubicSplineSetup), determine the bicubic spline
 % interpolant f on the grid {x,y}.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.3.2.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also BilinearSpline.  Verify with BicubicSplineTest.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
+% See also NR_BilinearSpline.  Verify with NR_BicubicSplineTest.
       
 ndx=length(xd); ndy=length(yd); nx=length(x); ny=length(y); i=1; 
 for ii=1:nx; j=1;
@@ -21,4 +21,4 @@ for ii=1:nx; j=1;
     f(ii,jj)=0; for I=0:3, for J=0:3, f(ii,jj)=f(ii,jj)+a(1+I+4*J)*x1^I*y1^J; end, end
   end
 end
-end % function BicubicSpline
+end % function NR_BicubicSpline

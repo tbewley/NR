@@ -1,5 +1,5 @@
-function Diffusion1D_CN_FD
-% function <a href="matlab:Diffusion1D_CN_FD">Diffusion1D_CN_FD</a>
+function NR_Diffusion1D_CN_FD
+% function <a href="matlab:NR_Diffusion1D_CN_FD">NR_Diffusion1D_CN_FD</a>
 % Simulate the 1D diffusion equation on 0<x<L with Dirichlet BCs
 % using CN in time and 2nd-order central FD in space.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 11.2.1.
@@ -13,7 +13,7 @@ c(2:N,1)= -dt/(2*dx^2); c(1)=0;  e=dt/(2*dx^2);
 rhs=zeros(N,1); [rhs,a,b,c]=Thomas(a,b,c,rhs,N); % Determine LU to reuse during march
 for n=1:TimeSteps                                           % Leading-order cost:
   rhs(2:N,1)=phi(2:N)+e*(phi(3:N+1)-2*phi(2:N)+phi(1:N-1));        % ~ 5N
-  t=t+dt; rhs(1)=sin(t); phi(1:N)=ThomasLU(a,b,c,rhs,N);           % ~ 5N
+  t=t+dt; rhs(1)=sin(t); phi(1:N)=NR_ThomasLU(a,b,c,rhs,N);           % ~ 5N
   PlotXY(x,phi,t,0,L,-1,1);
 end                                                         % Total: ~ 10N per timestep
-end % function Diffusion1D_CN_FD
+end % function NR_Diffusion1D_CN_FD

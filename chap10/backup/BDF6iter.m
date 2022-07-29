@@ -1,15 +1,15 @@
-function [x,t,s]=BDF6iter(R,x,t,s,p,v,SimPlot)
-% function [x,t,s]=BDF6iter(R,x,t,s,p,v,SimPlot)
+function [x,t,s]=NR_BDF6iter(R,x,t,s,p,v,SimPlot)
+% function [x,t,s]=NR_BDF6iter(R,x,t,s,p,v,SimPlot)
 % Simulate x'=f(x), with f implmented in R, using the iterative BDF6 method with an eBDF6
 % predictor.  t contains the initial t on input and the final t on output. x contains
-% the 6 most recent values of x on input (from a call to BDF5iter/BDF6iter),
-% and the 7 most recent values of x on output (facilitating a call to BDF6iter).
+% the 6 most recent values of x on input (from a call to NR_BDF5iter/NR_BDF6iter),
+% and the 7 most recent values of x on output (facilitating a call to NR_BDF6iter).
 % The simulation parameters are s.MaxTime, s.MaxSteps, s.MaxIters, s.h (timestep).
 % The function parameters p, whatever they are, are simply passed along to R.
 % If v<>0, SimPlot is called at each timestep to make interactive plots.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.5.3.1.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap10">Chapter 10</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also IEiter, BDF2iter, BDF3iter, BDF4iter, BDF5iter.  Verify with BDFtest.
+% See also NR_IEiter, NR_BDF2iter, NR_BDF3iter, NR_BDF4iter, NR_BDF5iter.  Verify with NR_BDFtest.
 
 for n=1:min((s.MaxTime-t)/s.h,s.MaxSteps)
   x(:,2:7)=x(:,1:6); f=feval(R,x(:,2),p);                   % Predict with eBDF6
@@ -19,4 +19,4 @@ for n=1:min((s.MaxTime-t)/s.h,s.MaxSteps)
   end
   t=t+s.h; if v, feval(SimPlot,x(:,2),x(:,1),t-s.h,t,s.h,s.h,v); end
 end
-end % function BDF6iter
+end % function NR_BDF6iter

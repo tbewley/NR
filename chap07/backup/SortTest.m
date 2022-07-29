@@ -5,11 +5,11 @@ for i=0:4
   frame=10000;
   D=2*rand(n,1)-1; plot(D(:,1),'x'); pause(10/speed);
   switch mod(i,5) 
-    case 0, InsertionSortVerbose;
-    case 1, BlockInsertionSortVerbose;
-    case 2, QuickSortVerbose(1,n);
-    case 3, MergeSortVerbose(1,n);
-    case 4, HeapSortVerbose;
+    case 0, NR_InsertionSortVerbose;
+    case 1, NR_BlockInsertionSortVerbose;
+    case 2, NR_QuickSortVerbose(1,n);
+    case 3, NR_MergeSortVerbose(1,n);
+    case 4, NR_HeapSortVerbose;
   end
   plot(D(:,1),'x'); axis([0 n+1 -1 1]); hold off; pause(10/speed);
  % switch mod(i,5) 

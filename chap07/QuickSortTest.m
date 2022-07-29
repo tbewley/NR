@@ -1,9 +1,9 @@
-% script <a href="matlab:QuickSortTest">QuickSortTest</a>
-% Test <a href="matlab:help InsertionSort">InsertionSort</a> on a random set of data.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% script <a href="matlab:NR_QuickSortTest">NR_QuickSortTest</a>
+% Test <a href="matlab:help NR_InsertionSort">NR_InsertionSort</a> on a random set of data.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
 
 n=99; D=2*rand(n,1)-1; close all, plot(D(:,1),'x'), pause(0.5)
-[D,index]=QuickSort(D,1,n);       plot(D(:,1),'x')
+[D,index]=NR_QuickSort(D,1,n);       plot(D(:,1),'x')
 
-% end script QuickSortTest
+% end script NR_QuickSortTest

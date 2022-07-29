@@ -1,7 +1,7 @@
-% script <a href="matlab:InvDistanceInterpTest">InvDistanceInterpTest</a>
-% Test <a href="matlab:help InvDistanceInterp">InvDistanceInterp</a> on data from a smooth fn.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.4.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% script <a href="matlab:NR_InvDistanceInterpTest">NR_InvDistanceInterpTest</a>
+% Test <a href="matlab:help NR_InvDistanceInterp">NR_InvDistanceInterp</a> on data from a smooth fn.
+% Numerical Renaissance codebase, Chapter 7, https://github.com/tbewley/NR
+% Copyright 2022 by Thomas Bewley, distributed under BSD 3-Clause License. 
  
 clear; Lx=17; Ly=30; Nx=85; Ny=150; N=150; k=2;      % Lx*Ly domain, k=order of RBFs
 x=[-Lx/2:Lx/(Nx-1):Lx/2]; y=[-Ly/2:Ly/(Ny-1):Ly/2];  % Nx*Ny grid on Lx*Ly domain
@@ -16,9 +16,9 @@ plot3(c(2,:),c(1,:),f,'ko','markerfacecolor','k'), axis tight, view(-11.5,14)
 
 for k=2:5, if k<5, p=k; else, p=20; end, figure(k)
   for i=1:Nx, for j=1:Ny
-    fn(i,j)=InvDistanceInterp([x(i); y(j)],c,f,p,100); % inverse distance interpolant
+    fn(i,j)=NR_InvDistanceInterp([x(i); y(j)],c,f,p,100); % inverse distance interpolant
   end, end
   grid on, hold on, title(sprintf('Inverse distance interpolant, p=%d',p)), surf(y,x,fn)
   plot3(c(2,:),c(1,:),f+.01,'ko','markerfacecolor','k'), axis tight, view(-11.5,14)
 end
-% end script InvDistanceInterpTest
+% end script NR_InvDistanceInterpTest

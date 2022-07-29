@@ -1,4 +1,4 @@
-% script TestQR
+% script NR_TestQR
 % Test the QR decomposition codes 
 % Remove various semicolons to print stuff to screen along the way, or leave the
 % semicolons in and change M and N to try larger matrices.
@@ -17,14 +17,14 @@ B=randn(M,N)+i*randn(M,N);                       % real or complex matrices B.
 disp('Now testing QRHouseholder');
 [Q,R]=QRHouseholder(B); nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-B),
 
-disp('Now initializing a random complex Hessenberg matrix');
+disp('Now initializing a random complex NR_Hessenberg matrix');
 M=5; N=4;                                        % Try tall, square, or fat, 
 C=randn(M,N)+i*randn(M,N);                       % real or complex matrices C,
-for J=1:N-1, for I=J+2:M, C(I,J)=0; end, end,    % forced to be upper Hessenberg.
-disp('Now testing QRGivensHessenberg');
-[Q,R]=QRGivensHessenberg(C); nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-C),
-disp('Now testing QRFastGivensHessenberg');
-[Q,R]=QRFastGivensHessenberg(C); nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-C),
+for J=1:N-1, for I=J+2:M, C(I,J)=0; end, end,    % forced to be upper NR_Hessenberg.
+disp('Now testing NR_QRGivensHessenberg');
+[Q,R]=NR_QRGivensHessenberg(C); nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-C),
+disp('Now testing NR_QRFastGivensHessenberg');
+[Q,R]=NR_QRFastGivensHessenberg(C); nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-C),
 
 disp('Now initializing a random complex tridiagonal matrix');
 N=50;                                           % Try square, tridiagonal
@@ -32,11 +32,11 @@ av=randn(N,1)+i*randn(N,1);                      % real or complex matrices only
 bv=randn(N,1)+i*randn(N,1);
 cv=randn(N,1)+i*randn(N,1);
 D=diag(av(2:N),-1)+diag(bv,0)+diag(cv(1:N-1),1);
-disp('Now running QRFastGivensHessenberg');
-tic; [Q,R]=QRFastGivensHessenberg(D); toc,
+disp('Now running NR_QRFastGivensHessenberg');
+tic; [Q,R]=NR_QRFastGivensHessenberg(D); toc,
 nonorthogonality=norm(Q'*Q-eye(size(Q'*Q))), residual=norm(Q*R-D),
 disp('Now testing QRFastGivensTridiagonal');
 tic; [bv,cv,av,type,alpha,beta,d]=QRFastGivensTridiagonal(av,bv,cv); toc,
 R1=diag(bv,0)+diag(cv(1:N-1),1)+diag(av(1:N-2),2); Rcheck=norm(R-R1),
 
-% end script TestQR.m
+% end script NR_TestQR.m

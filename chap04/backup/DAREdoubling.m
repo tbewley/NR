@@ -1,5 +1,5 @@
-function Q=DAREdoubling(F,S,Q,n,steps)
-% function X=DAREdoubling(F,S,Q,n,steps)
+function Q=NR_DAREdoubling(F,S,Q,n,steps)
+% function X=NR_DAREdoubling(F,S,Q,n,steps)
 % Finds the X that satisfies X = F' X (I+ S X)^{-1} F + Q, with Q>=0, S>=0. 
 % This code uses an elegant and efficient approach known as the doubling algorithm.
 % Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
@@ -7,4 +7,4 @@ function Q=DAREdoubling(F,S,Q,n,steps)
 for iter=1:steps
   E=inv(eye(n)+Q*S); Fnew=F*E'*F; Qnew=Q+F'*E*Q*F; S=S+F*S*E*F'; F=Fnew; Q=Qnew;
 end
-end % function DAREdoubling
+end % function NR_DAREdoubling

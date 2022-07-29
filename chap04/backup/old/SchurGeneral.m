@@ -1,13 +1,13 @@
-function [A] = SchurGeneral(A,p)
+function [A] = NR_SchurGeneral(A,p)
 % Apply the unshifted QR algorithm p times to the square matrix A.
-% After a preliminary Hessenberg reduction, a series of p shifted QR steps are taken.  
-% The code follows the algorithm in QRGivensHessenberg, following up by applying the
+% After a preliminary NR_Hessenberg reduction, a series of p shifted QR steps are taken.  
+% The code follows the algorithm in NR_QRGivensHessenberg, following up by applying the
 % postmultiplications directly to A (thereby computing R*Q) rather than calculating Q explicitly.
 % At the end of each QR step, the code checks the element in the (n,n-1) location to see whether
 % or not the eigenvalue in the (n,n) location is converged.  If it is, the matrix is deflated
 % and the same code applied to the smaller matrix.
 n=size(A,1)
-A=Hessenberg(A);
+A=NR_Hessenberg(A);
 for step=1:p
   mu=0;  for i=1:n; A(i,i)=A(i,i)-mu; end         % Apply the shift.
   for i=1:n-1      
@@ -19,8 +19,8 @@ for step=1:p
   for i=1:n; A(i,i)=A(i,i)+mu; end                     % Shift back.
   step, A,  pause;
   if abs(A(n,n-1)) <= 1e-10*( abs(A(n,n)) + abs(A(n-1,n-1)) )         % If (n,n) element
-     if n>2; [A(1:n-1,1:n-1)] = SchurGeneral(A(1:n-1,1:n-1),p); end   % converged, deflate.
+     if n>2; [A(1:n-1,1:n-1)] = NR_SchurGeneral(A(1:n-1,1:n-1),p); end   % converged, deflate.
      break;
   end
 end
-% end function SchurGeneral.m 
+% end function NR_SchurGeneral.m 

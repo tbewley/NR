@@ -12,4 +12,4 @@ disp('The rotation is designed to drive the (3,1) element of A to zero.')
 [c,s]=NR_Rotate_Compute(A(2,1),A(3,1));
 [X_from_Rotate]=NR_Rotate(A,c,s,2,3,1,4,'B'), disp(' ')
 
-% end script RotateTest
+% end script NR_Rotate_Test

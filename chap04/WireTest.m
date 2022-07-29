@@ -1,20 +1,20 @@
-function WireTest               
-% function <a href="matlab:WireTest">WireTest</a>
+function NR_WireTest               
+% function <a href="matlab:NR_WireTest">NR_WireTest</a>
 % This function computes, plots, & animates the leading modes of vibration of a wire.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 4.3.2.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap04">Chapter 4</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% Depends on <a href="matlab:help Eig">Eig</a> and <a href="matlab:help MergeSort">MergeSort</a>.
+% Depends on <a href="matlab:help NR_Eig">NR_Eig</a> and <a href="matlab:help NR_MergeSort">NR_MergeSort</a>.
 
 disp('Now computing, ploting, & animating the leading modes of vibration of a wire.')
 clear; close all; c=1; L=1; n=128; numplots=3;  % Initialize the simulation parameters 
 DeltaX=L/n;  X=[0:DeltaX:L];                    % Set up grid and the A matrix
 A=(c^2/DeltaX^2)*(diag(ones(n-2,1),-1) - 2*diag(ones(n-1,1),0) + diag(ones(n-2,1),1));
-[lam,S]=Eig(A);  [scratch,index]=MergeSort(abs(lam),0,n-1); S=S(:,index); lam=lam(index);
+[lam,S]=NR_Eig(A);  [scratch,index]=NR_MergeSort(abs(lam),0,n-1); S=S(:,index); lam=lam(index);
 omega_exact=[1:numplots]*pi*c/L, n, omega_numerical=sqrt(-lam(1:numplots))'
 for m=1:numplots, disp(sprintf('This is a plot of mode %d',m))
    amp=1/max(abs(S(:,m))); clf; plot(X,amp*[0 S(:,m)' 0],'*'), axis([0 1 -1 1]), pause
 end, WireAnimate(lam,S,X,n,DeltaX), disp(' ')
-end % function WireTest
+end % function NR_WireTest
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function WireAnimate(Ds,Vs,X,n,DeltaX) 
 omega=sqrt(-Ds); maxframes=400; tmax=8; p=2; a=0.95/max(abs(Vs(:,p))); clf;        

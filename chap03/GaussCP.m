@@ -1,11 +1,11 @@
-function [X,A,p,q] = GaussCP(A,B,n)
-% function [X,A,p,q] = GaussCP(A,B,n)
-% This function solves AX=B for X using Gaussian elimination with complete pivoting.
+function [X,A,p,q] = NR_GaussCP(A,B,n)
+% function [X,A,p,q] = NR_GaussCP(A,B,n)
+% This function solves AX=B for X using NR_Gaussian elimination with complete pivoting.
 % The solution X is returned on exit, and (if requested) the matrix A
 % is replaced by m_ij and U on exit, with the vectors of pivots returned in p and q.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 2.2.3.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap02">Chapter 2</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also GaussPLUQT. Verify with GaussCPTest.
+% See also NR_GaussPLUQT. Verify with NR_GaussCPTest.
 
 p=[1:n]';  q=[1:n]';                              % initialize permutation vectors
 for j = 1:n-1,                                    % FORWARD SWEEP
@@ -20,15 +20,15 @@ for j = 1:n-1,                                    % FORWARD SWEEP
       A(:,[j j-1+jmax])=A(:,[j-1+jmax j]);        % Then, exchange the columns of A and
       q([j j-1+jmax])  =q([j-1+jmax j]);          % the rows of the permutation vector q.
    end
-% --- THIS LINE IS FOLLOWED BY THE REMAINDER OF Gauss.m ---
+% --- THIS LINE IS FOLLOWED BY THE REMAINDER OF NR_Gauss.m ---
 % ...
    A(j+1:n,j)     = - A(j+1:n,j) / A(j,j);
    A(j+1:n,j+1:n) = A(j+1:n,j+1:n) + A(j+1:n,j) * A(j,j+1:n);   % (Outer product update)
    B(j+1:n,:)     = B(j+1:n,:)     + A(j+1:n,j) * B(j,:);
 end
-for i = n:-1:1,                                                 % BACK SUBSTITUTION
+for i = n:-1:1,                                                 % BACK SUNR_BSTITUTION
    B(i,:) = ( B(i,:) - A(i,i+1:n) * B(i+1:n,:) ) / A(i,i);      % (Inner product update)
 end
-% --- AFTER THE REMAINDER OF Gauss.m, ONE MORE LINE OF CODE FOLLOWS TO DESCRAMBLE B ---
+% --- AFTER THE REMAINDER OF NR_Gauss.m, ONE MORE LINE OF CODE FOLLOWS TO DESCRAMBLE B ---
 for j=1:n, X(q(j),:)=B(j,:); end
-end % function GaussCP
+end % function NR_GaussCP
