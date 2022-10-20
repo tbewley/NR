@@ -13,4 +13,4 @@ function [A]=NR_Tridiag(a,b,c)
 % Copyright 2021 by Thomas Bewley, distributed under BSD 3-Clause License. 
 
 n=length(b); A=diag(a(2:n),-1)+diag(b,0)+diag(c(1:n-1),1); A(1,n)=a(1); A(n,1)=c(n);
-end % function TriDiag
+end % function NR_TriDiag

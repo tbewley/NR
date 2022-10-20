@@ -8,4 +8,4 @@ function R=NR_Hankel(top,right)
 % Copyright 2021 by Thomas Bewley, distributed under BSD 3-Clause License. 
 
 n=length(top); for row=1:n; R(row,:)=[top(row:n) right(2:row)]; end
-end % function Hankel
+end % function NR_Hankel

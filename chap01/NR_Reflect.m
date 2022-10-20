@@ -22,4 +22,4 @@ if or(which=='L',which=='B')
 end, if or(which=='R',which=='B')                      
   X(p:q,i:k)=X(p:q,i:k)-(X(p:q,i:k)*w)*(sig*w');        % (1.10b)
 end
-end % function Reflect
+end % function NR_Reflect

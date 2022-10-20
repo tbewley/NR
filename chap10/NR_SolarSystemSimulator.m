@@ -1,4 +1,4 @@
-function [qs,energy]=SolarSystemSimulator(method)
+function [qs,energy]=NR_SolarSystemSimulator(method)
 % function <a href="matlab:SolarSystemSimulator">SolarSystemSimulator</a>
 % Simulate the evolution of the solar system using method=SI4 or method=RK4.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.6.3.
@@ -51,9 +51,9 @@ drift=sum(p,1)/sum(M); for i=1:9, for j=1:3, p(i,j)=p(i,j)-M(i)*drift(j); end, e
 cm=[M*q(:,1) M*q(:,2) M*q(:,3)]/sum(M); for j=1:3, q(:,j)=q(:,j)-cm(j); end
 % Reflect system such that [1 0 0] is normal to the plane of the ecliptic
 n=0; for i=1:9, n=n+cross(q(i,:),p(i,:)); end
-[s,w]=ReflectCompute(n'); [q]=Reflect(q,s,w,1,3,1,9,'R');  [p]=Reflect(p,s,w,1,3,1,9,'R');
+[s,w]=NR_ReflectCompute(n'); [q]=NR_Reflect(q,s,w,1,3,1,9,'R');  [p]=NR_Reflect(p,s,w,1,3,1,9,'R');
 a=q(4,2); b=q(4,3); % Rotate system such that earth is initially at 0 degrees
-[c,s]=RotateCompute(a,b); [q]=Rotate(q,-c,-s,2,3,1,9,'R'); [p]=Rotate(p,-c,-s,2,3,1,9,'R');
+[c,s]=NR_RotateCompute(a,b); [q]=NR_Rotate(q,-c,-s,2,3,1,9,'R'); [p]=NR_Rotate(p,-c,-s,2,3,1,9,'R');
 % Set up a vector to save the simulation result, and check the initial energy
 qs(:,:,1)=q; energy(1)=CheckEnergy(p,q,M,G,0,method);
 % Initialize constants for SI4 time marching method of Ruth
@@ -85,7 +85,7 @@ for k=1:Tmax/h, t=k*h;                           % Now perform time march using 
   if mod(k,365)==0 | k==Tmax/h, energy(end+1)=CheckEnergy(p,q,M,G,t,method); end
 end
 for P=1:2, figure(P), plot3(q(1:n,1),q(1:n,2),q(1:n,3),'k*'), hold off,end % Finalize plots                                          
-end % function SolarSystemSimulator
+end % function NR_SolarSystemSimulator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [x] = dqdt(p,M);
 for i=1:9; for j=1:3; x(i,j)=p(i,j)/M(i); end, end
