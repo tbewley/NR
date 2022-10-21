@@ -51,16 +51,16 @@ drift=sum(p,1)/sum(M); for i=1:9, for j=1:3, p(i,j)=p(i,j)-M(i)*drift(j); end, e
 cm=[M*q(:,1) M*q(:,2) M*q(:,3)]/sum(M); for j=1:3, q(:,j)=q(:,j)-cm(j); end
 % Reflect system such that [1 0 0] is normal to the plane of the ecliptic
 n=0; for i=1:9, n=n+cross(q(i,:),p(i,:)); end
-[s,w]=NR_ReflectCompute(n'); [q]=NR_Reflect(q,s,w,1,3,1,9,'R');  [p]=NR_Reflect(p,s,w,1,3,1,9,'R');
+[s,w]=NR_Reflect_Compute(n'); [q]=NR_Reflect(q,s,w,1,3,1,9,'R');  [p]=NR_Reflect(p,s,w,1,3,1,9,'R');
 a=q(4,2); b=q(4,3); % Rotate system such that earth is initially at 0 degrees
-[c,s]=NR_RotateCompute(a,b); [q]=NR_Rotate(q,-c,-s,2,3,1,9,'R'); [p]=NR_Rotate(p,-c,-s,2,3,1,9,'R');
+[c,s]=NR_Rotate_Compute(a,b); [q]=NR_Rotate(q,-c,-s,2,3,1,9,'R'); [p]=NR_Rotate(p,-c,-s,2,3,1,9,'R');
 % Set up a vector to save the simulation result, and check the initial energy
 qs(:,:,1)=q; energy(1)=CheckEnergy(p,q,M,G,0,method);
 % Initialize constants for SI4 time marching method of Ruth
 f=2^(1/3); c(1)=1/(2*(2-f)); c(4)=c(1); c(2)=(1-f)/(2*(2-f)); c(3)=c(2);
 d(1)=1/(2-f);     d(3)=d(1); d(2)=-f/(2-f);        d(4)=0; 
-for P=1:2, figure(P); clf; if P==1; n=5; else; n=9; end                 % Initialize plots
-plot3(q(1:n,1),q(1:n,2),q(1:n,3),'k+'); hold on; view(90,0), j=1; end
+figure(1); plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k+'); hold on; view(90,0)  % Initialize plots
+figure(2); plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k+'); hold on; view(90,0), j=1; 
 for k=1:Tmax/h, t=k*h;                           % Now perform time march using SI4 or RK4
   if method=='SI4'
     for ss=1:4, q=q+c(ss)*h*dqdt(p,M);  if ss<4, p=p+d(ss)*h*dpdt(q,M,G); end, end   % SI4
@@ -84,7 +84,8 @@ for k=1:Tmax/h, t=k*h;                           % Now perform time march using 
   end, j=l; end
   if mod(k,365)==0 | k==Tmax/h, energy(end+1)=CheckEnergy(p,q,M,G,t,method); end
 end
-for P=1:2, figure(P), plot3(q(1:n,1),q(1:n,2),q(1:n,3),'k*'), hold off,end % Finalize plots                                          
+figure(1), plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k*'), hold off % Finalize plots                                          
+figure(2), plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k*'), hold off
 end % function NR_SolarSystemSimulator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [x] = dqdt(p,M);
