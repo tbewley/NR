@@ -1,27 +1,26 @@
-function [qs,energy]=NR_SolarSystemSimulator(method)
+function [qs,energy]=NR_SolarSystemSimulator(method,Tmax,kmax)
 % function <a href="matlab:SolarSystemSimulator">SolarSystemSimulator</a>
 % Simulate the evolution of the solar system using method=SI4 or method=RK4.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.6.3.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap10">Chapter 10</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
 
-if nargin<1, method='SI4', end       % Try 'SI4' or 'RK4' (but check Figure 10.24 first!)
-Tmax=1.8808;                         % Exact total simulation time, in sidereal years
-kmax=round(Tmax*365); h=Tmax/kmax;   % Timestep (will be about 1 earth day)
+global RR_VERBOSE AU sy; 
+h=Tmax/kmax;                         % Timestep
 % Set constants to convert distances to AU and times to sidereal years, 
 AU=149597870700;       % Astronomical Unit = mean orbital distance of earth from sun in m
 sy=365.256363004;      % Number of days in a sidereal year
-% Gravitational constant (converted from m^3/kg/s^2 to AU^3/kg/year^2)
+% Gravitational constant (converted from m^3/kg/s^2 to AU^3/kg/sy^2)
 G =6.67428e-11*(60*60*24*sy)^2/AU^3; 
 % Masses (kg)  [Data from Champion et al. (2010)]
-M(1)=1.988920e+30;             % Sun
-M(2)=3.29846e+23;              % Mercury 
-M(3)=4.86854e+24;              % Venus
-M(4)=5.9736e+24 + 0.07349e+24; % Earth + Moon
-M(5)=6.41665e+23;              % Mars    
-M(6)=1.899005e+27;             % Jupiter 
-M(7)=5.686069e+26;             % Saturn  
-M(8)=8.6832e+25;               % Uranus
-M(9)=1.0243e+26;               % Neptune
+m(1)=1.988920e+30;             % Sun
+m(2)=3.29846e+23;              % Mercury 
+m(3)=4.86854e+24;              % Venus
+m(4)=5.9736e+24 + 0.07349e+24; % Earth + Moon
+m(5)=6.41665e+23;              % Mars    
+m(6)=1.899005e+27;             % Jupiter 
+m(7)=5.686069e+26;             % Saturn  
+m(8)=8.6832e+25;               % Uranus
+m(9)=1.0243e+26;               % Neptune
 % Note: Pluto is now just a planette, and thus isn't included in this simulation...
 % Initial positions (AU) and initial velocities (AU/day)
 % [Data from Arminjon, M (2002), 00:00:00.0 on February 26, 2000.]
@@ -44,63 +43,66 @@ p=[0, 0, 0;                                                       % Sun
   +2.647505630327E-03, +2.487457379099E-03, +1.052000252243E-03;  % Uranus
   +2.568651772461E-03, +1.681832388267E-03, +6.245613982833E-04]; % Neptune
 % Convert initial velocities (AU/day) to initial momenta (AU*kg/year)
-for i=1:9, p(i,:)=M(i)*p(i,:)*sy; end
+for i=1:9, p(i,:)=m(i)*p(i,:)*sy; end
 % Remove the drift of the entire system.
-drift=sum(p,1)/sum(M); for i=1:9, for j=1:3, p(i,j)=p(i,j)-M(i)*drift(j); end, end
+drift=sum(p,1)/sum(m); for i=1:9, for j=1:3, p(i,j)=p(i,j)-m(i)*drift(j); end, end
 % Shift center of mass of system to the origin.
-cm=[M*q(:,1) M*q(:,2) M*q(:,3)]/sum(M); for j=1:3, q(:,j)=q(:,j)-cm(j); end
+cm=[m*q(:,1) m*q(:,2) m*q(:,3)]/sum(m); for j=1:3, q(:,j)=q(:,j)-cm(j); end
 % Reflect system such that [1 0 0] is normal to the plane of the ecliptic
 n=0; for i=1:9, n=n+cross(q(i,:),p(i,:)); end
 [s,w]=NR_Reflect_Compute(n'); [q]=NR_Reflect(q,s,w,1,3,1,9,'R');  [p]=NR_Reflect(p,s,w,1,3,1,9,'R');
 a=q(4,2); b=q(4,3); % Rotate system such that earth is initially at 0 degrees
 [c,s]=NR_Rotate_Compute(a,b); [q]=NR_Rotate(q,-c,-s,2,3,1,9,'R'); [p]=NR_Rotate(p,-c,-s,2,3,1,9,'R');
 % Set up a vector to save the simulation result, and check the initial energy
-qs(:,:,1)=q; energy(1)=CheckEnergy(p,q,M,G,0,method);
+qs(:,:,1)=q; energy(1)=CheckEnergy(p,q,m,G,0,method);
 % Initialize constants for SI4 time marching method of Ruth
 f=2^(1/3); c(1)=1/(2*(2-f)); c(4)=c(1); c(2)=(1-f)/(2*(2-f)); c(3)=c(2);
-d(1)=1/(2-f);     d(3)=d(1); d(2)=-f/(2-f);        d(4)=0; 
-figure(1); plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k+'); hold on; view(90,0)  % Initialize plots
-figure(2); plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k+'); hold on; view(90,0), j=1; 
-for k=1:Tmax/h, t=k*h;                           % Now perform time march using SI4 or RK4
+           d(1)=1/(2-f);     d(3)=d(1); d(2)=-f/(2-f);        d(4)=0; 
+if RR_VERBOSE; figure(1); plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k+'); hold on; view(90,0)  % Initialize plots
+               figure(2); plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k+'); hold on; view(90,0)
+end, j=1;
+for k=1:kmax, t=k*h;                             % Now perform time march using SI4 or RK4
   if method=='SI4'
-    for ss=1:4, q=q+c(ss)*h*dqdt(p,M);  if ss<4, p=p+d(ss)*h*dpdt(q,M,G); end, end   % SI4
+    for ss=1:4, q=q+c(ss)*h*dqdt(p,m);  if ss<4, p=p+d(ss)*h*dpdt(q,m,G); end, end   % SI4
     % Note: the SI4 implementation above may be accelerated by combining the last substep
     % of each timestep with the first substep of the next, as suggested in the text.
   elseif method=='RK4'
-    k1q=dqdt(p,M);                   k1p=dpdt(q,M,G);                                % RK4
-    k2q=dqdt(p+(h/2)*k1p,M);         k2p=dpdt(q+(h/2)*k1q,M,G);
-    k3q=dqdt(p+(h/2)*k2p,M);         k3p=dpdt(q+(h/2)*k2q,M,G);
-    k4q=dqdt(p+h*k3p,M);             k4p=dpdt(q+h*k3q,M,G);
+    k1q=dqdt(p,m);                   k1p=dpdt(q,m,G);                                % RK4
+    k2q=dqdt(p+(h/2)*k1p,m);         k2p=dpdt(q+(h/2)*k1q,m,G);
+    k3q=dqdt(p+(h/2)*k2p,m);         k3p=dpdt(q+(h/2)*k2q,m,G);
+    k4q=dqdt(p+h*k3p,m);             k4p=dpdt(q+h*k3q,m,G);
     q=q+h*(k1q/6+(k2q+k3q)/3+k4q/6); p=p+h*(k1p/6+(k2p+k3p)/3+k4p/6); 
   end
   qs(:,:,k+1)=q;
-  if (mod(k,5)==0 & k<=730) | mod(k,365)==0 | k==Tmax/h, l=k+1; for P=1:2, figure(P),
-    if P==1, n=5; m=1; title(sprintf('Inner planets, Day=%0.2f, Year=%0.5g',t*sy,t))
-    else,    n=9; m=5; title(sprintf('Outer planets, Day=%0.2f, Year=%0.5g',t*sy,t)), end
+  if RR_VERBOSE & ((mod(k,5)==0 & k<=730) | mod(k,365)==0 | k==Tmax/h), l=k+1; for P=1:2, figure(P),
+    if P==1, n=5; num=1; title(sprintf('Inner planets, Day=%0.2f, Year=%0.5g',t*sy,t))
+    else,    n=9; num=5; title(sprintf('Outer planets, Day=%0.2f, Year=%0.5g',t*sy,t)), end
     for i=1:n
-      plot3(shiftdim(qs(i,1,j:m:l)),shiftdim(qs(i,2,j:m:l)),shiftdim(qs(i,3,j:m:l)),'k-')
+      plot3(shiftdim(qs(i,1,j:num:l)),shiftdim(qs(i,2,j:num:l)),shiftdim(qs(i,3,j:num:l)),'k-')
     end
     axis tight, axis equal, pause(0.0001);
   end, j=l; end
-  if mod(k,365)==0 | k==Tmax/h, energy(end+1)=CheckEnergy(p,q,M,G,t,method); end
+  energy(k)=CheckEnergy(p,q,m,G,t,method);
 end
-figure(1), plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k*'), hold off % Finalize plots                                          
-figure(2), plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k*'), hold off
+if RR_VERBOSE, figure(1), plot3(q(1:5,1),q(1:5,2),q(1:5,3),'k*'), hold off % Finalize plots                                          
+               figure(2), plot3(q(1:9,1),q(1:9,2),q(1:9,3),'k*'), hold off, end
 end % function NR_SolarSystemSimulator
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [x] = dqdt(p,M);
-for i=1:9; for j=1:3; x(i,j)=p(i,j)/M(i); end, end
+function [x] = dqdt(p,m);
+for i=1:9; for j=1:3; x(i,j)=p(i,j)/m(i); end, end
 end % function dqdt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [x] = dpdt(q,M,G);
+function [x] = dpdt(q,m,G);
 x=zeros(9,3); for i=1:9; for j=1:3; for k=1:9; if k~=i
-  x(i,j)=x(i,j)+G*M(i)*M(k)*(q(k,j)-q(i,j))/norm(q(k,:)'-q(i,:)')^3;
+  x(i,j)=x(i,j)+G*m(i)*m(k)*(q(k,j)-q(i,j))/norm(q(k,:)'-q(i,:)')^3;
 end, end, end, end
 end % function dpdt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function TE=CheckEnergy(p,q,M,G,t,method);
-KE=0; for i=1:9, KE=KE+norm(p(i,:)')^2/(2*M(i)); end
-PE=0; for i=1:8, for k=i+1:9, PE=PE-G*M(i)*M(k)/norm(q(k,:)'-q(i,:)'); end, end
-TE=KE+PE; disp(sprintf('%s, Year= %0.5g, Total energy %0.9g',method,t,TE))
+function TE=CheckEnergy(p,q,m,G,t,method);
+global RR_VERBOSE AU sy
+KE=0; for i=1:9, KE=KE+norm(p(i,:)')^2/(2*m(i)); end
+PE=0; for i=1:8, for k=i+1:9, PE=PE-G*m(i)*m(k)/norm(q(k,:)'-q(i,:)'); end, end
+TE=(KE+PE)*(60*60*24*sy/AU)^2;  % Convert from kg*AU^2/(siderial year)^2 to J [kg*m^2/s^2]
+if RR_VERBOSE, disp(sprintf('%s, Year= %0.5g, Total energy %0.9g',method,t,TE)), end
 end % function CheckEnergy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
