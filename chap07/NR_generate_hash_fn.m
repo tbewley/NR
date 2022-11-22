@@ -15,7 +15,6 @@ function hash_fn=NR_generate_hash_fn(data,N_bits,N_data)
 N_hash=N_bits*N_data;                    % PART A: Calculate total length of hash function.
 q_bit=quantizer('fixed',[N_bits 0]);     % Prepare to convert data to N_bit 2's complement form. 
 data_b=num2bin(q_bit,data);              % Convert input data to binary form.
-data_b                                   % Print data_b to the screen (if you care, comment out if not)
 
 hash=''; for i=1:N_bits, for j=1:N_data  % PART B: Build a hash function that interleaves the bits of the
     hash=cat(2,hash,data_b(j,i));        % data from Part A. This is done in an attempt to minimize collisions
@@ -25,11 +24,13 @@ hash                                     % Print hash to the screen (if you care
 if N_hash<=54
   q_hash=quantizer('fixed',[N_hash 0]);  % PART C: convert hash function of Part B to a single integer 
   hash_fn=bin2num(q_hash,hash);          % <- This is the useful form of the single integer hash function
-else
+elseif N_hash<=108
   half_hash=ceil(N_hash/2);                % PART D: convert hash function of Part B to two integers
   q_hash=quantizer('fixed',[half_hash 0]); % (we need to do this when N_hash>54, and Part C fails...)
   hash_fn(1)=bin2num(q_hash,hash(1:half_hash));      % <- This is the useful form 
   hash_fn(2)=bin2num(q_hash,hash(half_hash+1:end));  % of the two-integer hash function
+else
+  error('NR_generate_hash_fn not designed to handle that much input data.')
 end
 
 end % function NR_generate_hash_fn
