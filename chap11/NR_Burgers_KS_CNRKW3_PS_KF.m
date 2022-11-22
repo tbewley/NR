@@ -1,10 +1,12 @@
 function NR_Burgers_KS_CNRKW3_PS_KF
 % function <a href="matlab:NR_Burgers_KS_CNRKW3_PS">NR_Burgers_KS_CNRKW3_PS</a>
+% UNFINISHED.  KF is for Kalman Filtering; the idea is to simulate both the state and the
+% estimate, and show that (with the appropriate KF feedback applied) the estimate converges
+% to the state.
 % Simulate the 1D Burgers or KS equation on 0<x<L with periodic BCs using CN/RKW3 in time
 % (explicit on nonlinear terms, implicit on linear terms) & pseudospectral in space.
 % See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 11.2.2.
 % Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap11">Chapter 11</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also NR_Burgers_CNRKW3_FD and NR_Burgers_CNRKW3_FD_RS with FD implementations.
 
 %%%%%%%%%%%%%%%%%%%% Initialize the simulation paramters (user input) %%%%%%%%%%%%%%%%%%%%
 L=36.33; Tmax=100; N=64; dt=0.05; PlotInt=10; alpha=1; % alpha=0 for Burgers, alpha=1 for KS
@@ -45,7 +47,7 @@ for k=1:Tmax/dt
   if (mod(k,PlotInt)==0) 
     % pause(0.001); figure(1); clf; plot(x,rs(k,:),'b-',x,rbs(k,:),'r-'); axis([0 L -1.5, 1.5]);
     %               xlabel('x'); ylabel('u'); title(sprintf('Time = %5.2f',k*dt));
-    % Comment out the lines below to make some additional interesting plots.
+    % Uncomment the lines below to make some additional interesting plots.
     % figure(2); semilogy(kx(1:fix(N/3)),abs(uhat(1:fix(N/3))).^2); axis([0 3 1e-8 1e-1])
     % figure(3); loglog(kx(1:fix(N/3)),abs(uhat(1:fix(N/3))).^2); axis([3e-2 4 1e-8 1e-1])
   end
