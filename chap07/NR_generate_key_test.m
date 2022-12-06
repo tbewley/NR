@@ -14,10 +14,10 @@ signed_data=randi([lower_limit upper_limit],1,N_data,'int32')
 % Shift data to the non_negative integers.
 data=uint64(signed_data+offset32);
 
-% The following single line generates the uint64 key
+% The following single line generates the (uint64) key
 for i=1:N_data; key=key+data(i)*fac^(i-1); end, key
 
-% Extract data from the uint64 key
+% Extract data from the (uint64) key
 for i=N_data:-1:1,
     data_check(i)=idivide(key,fac^(i-1),'floor');
     key=key-data_check(i)*fac^(i-1);
