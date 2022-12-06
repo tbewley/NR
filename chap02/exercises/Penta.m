@@ -1,4 +1,4 @@
-function [G,a,b,c,d,e] = NR)Penta(a,b,c,d,e,G,n)
+function [G,a,b,c,d,e] = Penta(a,b,c,d,e,G,n)
 % function [G,a,b,c,d,e] = Penta(a,b,c,d,e,G,n)
 % This function solves AX=G for X using a simplified form of NR_Gaussian elimination,
 % where A = pentadiag(a,b,c,d,e).  The five diagonals of A are replaced by the m_ij
