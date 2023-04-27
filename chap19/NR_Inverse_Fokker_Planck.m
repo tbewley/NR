@@ -55,9 +55,9 @@ LHS=LAP/d^2+g_dot_NAB/d; PHI=LHS\RHS;   % Build LHS matrix while applying consta
 
 for i=1:N, for j=1:N, c=i+(j-1)*N; phi_num(i,j)=PHI(c); end, end % rearrange PHI as matrix and plot
 phi_num(:,:)=phi_num(:,:)-phi_num(Nc,Nc);
-figure(6); mesh(x,y,phi_num);  title('numerically determined phi(x,y)'), xlabel('x'), ylabel('y')
+figure(6); mesh(x,y,phi_num); title('numerically determined phi(x,y)'), xlabel('x'), ylabel('y')
 axis([x(1) x(end) y(1) y(end)  min(min(phi_exact)) max(max(phi_num))])
-figure(7); mesh(x,y,phi_num-phi_exact);  title('phi error(x,y)'), xlabel('x'), ylabel('y')
+figure(7); mesh(x,y,phi_num-phi_exact); title('phi error(x,y)'), xlabel('x'), ylabel('y')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [p,gx,gy,h,phi]=gaussian(N,x,y,xvbar,var,alpha)
 P=diag(var)
