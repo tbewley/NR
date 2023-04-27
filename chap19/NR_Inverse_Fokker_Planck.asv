@@ -42,9 +42,10 @@ i=round(N+1)/2; j=round(N+1)/2; c=i+(j-1)*N; LAP(c,:)=0; LAP(c,c)=d^2; NABx(c,:)
 for i=1:N-1:N, for j=1:N-1:N, c=i+(j-1)*N; NABx(c,:)=0; NABy(c,:)=0; h(i,j)=0; end, end
 
 for i=1:N, for j=1:N, c=i+(j-1)*N;
-  g_dot_NAB(c,:)=gx(i,j)*NABx(c,:)+gy(i,j)*NABy(c,:); RHS(c,1)=h(i,j);  % calculate g.nabla, build RHS vector                                
+  g_dot_NAB(c,:)=gx(i,j)*NABx(c,:)+gy(i,j)*NABy(c,:); RHS(c,1)=h(i,j);  % perform g.nabla operation, % build RHS vector
+                                         
 end, end
-LHS=LAP/d^2+g_dot_NAB/d; PHI=LHS\RHS;   % Build LHS matrix while applying constants, and solve system
+LHS=LAP/d^2+g_dot_NAB/d; PHI=LHS\RHS;   % Build LHS matrix while applying constants, solve
 
 for i=1:N, for j=1:N, c=i+(j-1)*N; phi_num(i,j)=PHI(c); end, end % rearrange PHI as matrix and plot
 figure(6); mesh(x,y,phi_num);  title('numerically determined phi(x,y)'), xlabel('x'), ylabel('y')
