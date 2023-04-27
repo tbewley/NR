@@ -4,7 +4,7 @@
 % We take the second derivative in the wall-normal direction equal to zero at the walls.
 % By Thomas Bewley, April 26 2023
 
-clear; close all; format compact; N=101, L=6, d=L/(N-1); x=[-L/2:d:L/2]; y=[-L/2:d:L/2];
+clear; close all; format compact; N=101, L=6, d=L/(N-1); x=[-L/2:d:L/2]; y=[-L/2:d:L/2]; Nc=round(N+1)/2;
 xvbar=[0; 0]; var=[1; 1]; alpha=1; [p,gx,gy,h,phi_exact]=gaussian(N,x,y,xvbar,var,alpha);
 integral_of_p=sum(p,'all')*d^2; Z=zeros(N*N,N*N); LAP=Z; NABx=Z; NABy=Z;
 for i=1:N
@@ -19,10 +19,10 @@ for i=1:N
         elseif i==N & j==1; LAP(c,c)=-2; LAP(c,n)=3; LAP(c,nn)=-3; LAP(c,nnn)=1; LAP(c,w)=3; LAP(c,ww)=-3; LAP(c,www)=1; % curvature extrapolation
         elseif i==N & j==N; LAP(c,c)=-2; LAP(c,s)=3; LAP(c,ss)=-3; LAP(c,sss)=1; LAP(c,w)=3; LAP(c,ww)=-3; LAP(c,www)=1; % along edges
 
-%         elseif i==1; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,e)=-2; LAP(c,ee)=1; % Edge BCs (forward difference operor into domain)
-%         elseif i==N; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-2; LAP(c,ww)=1; % (first order to interior) 
-%         elseif j==1; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,n)=-2; LAP(c,nn)=1;
-%         elseif j==N; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,s)=-2; LAP(c,ss)=1;
+%        elseif i==1; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,e)=-2; LAP(c,ee)=1; % Edge BCs (forward difference operor into domain)
+%        elseif i==N; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-2; LAP(c,ww)=1; % (first order to interior) 
+%        elseif j==1; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,n)=-2; LAP(c,nn)=1;
+%        elseif j==N; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,s)=-2; LAP(c,ss)=1;
 
         elseif i==1; LAP(c,c)=0; LAP(c,n)=1; LAP(c,s)=1; LAP(c,e)=-5; LAP(c,ee)=4; LAP(c,eee)=-1; % Edge BCs (forward difference operor into domain)
         elseif i==N; LAP(c,c)=0; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-5; LAP(c,ww)=4; LAP(c,www)=-1; % (second order to interior) 
@@ -43,7 +43,7 @@ for i=1:N
     end
 end
 % Enforce value of phi at center point (so set nabla and h equal to zero at center point)
-i=round(N+1)/2; j=round(N+1)/2; c=i+(j-1)*N; LAP(c,:)=0; LAP(c,c)=d^2; NABx(c,:)=0; NABy(c,:)=0; h(i,j)=0;
+% i=Nc; j=Nc; c=i+(j-1)*N; LAP(c,:)=0; LAP(c,c)=d^2; NABx(c,:)=0; NABy(c,:)=0; h(i,j)=0;
 
 % Corner points are done via curvature extrapolation along edges (so set nabla and h equal to zero at corners)
 for i=1:N-1:N, for j=1:N-1:N, c=i+(j-1)*N; NABx(c,:)=0; NABy(c,:)=0; h(i,j)=0; end, end
@@ -54,6 +54,7 @@ end, end
 LHS=LAP/d^2+g_dot_NAB/d; PHI=LHS\RHS;   % Build LHS matrix while applying constants, and solve system
 
 for i=1:N, for j=1:N, c=i+(j-1)*N; phi_num(i,j)=PHI(c); end, end % rearrange PHI as matrix and plot
+phi_num(:,:)=phi_num(:,:)-phi_num(Nc,Nc);
 figure(6); mesh(x,y,phi_num);  title('numerically determined phi(x,y)'), xlabel('x'), ylabel('y')
 axis([x(1) x(end) y(1) y(end)  min(min(phi_exact)) max(max(phi_num))])
 figure(7); mesh(x,y,phi_num-phi_exact);  title('phi error(x,y)'), xlabel('x'), ylabel('y')
