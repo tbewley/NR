@@ -20,12 +20,12 @@ for i=1:N
         elseif i==N & j==N; LAP(c,c)=-2; LAP(c,s)=3; LAP(c,ss)=-3; LAP(c,sss)=1; LAP(c,w)=3; LAP(c,ww)=-3; LAP(c,www)=1; % along edges
 
 %         elseif i==1; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,e)=-2; LAP(c,ee)=1; % Edge BCs (forward difference operor into domain)
-%         elseif i==N; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-2; LAP(c,ww)=1;
+%         elseif i==N; LAP(c,c)=-1; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-2; LAP(c,ww)=1; % (first order to interior) 
 %         elseif j==1; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,n)=-2; LAP(c,nn)=1;
 %         elseif j==N; LAP(c,c)=-1; LAP(c,e)=1; LAP(c,w)=1; LAP(c,s)=-2; LAP(c,ss)=1;
 
         elseif i==1; LAP(c,c)=0; LAP(c,n)=1; LAP(c,s)=1; LAP(c,e)=-5; LAP(c,ee)=4; LAP(c,eee)=-1; % Edge BCs (forward difference operor into domain)
-        elseif i==N; LAP(c,c)=0; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-5; LAP(c,ww)=4; LAP(c,www)=-1;
+        elseif i==N; LAP(c,c)=0; LAP(c,n)=1; LAP(c,s)=1; LAP(c,w)=-5; LAP(c,ww)=4; LAP(c,www)=-1; % (second order to interior) 
         elseif j==1; LAP(c,c)=0; LAP(c,e)=1; LAP(c,w)=1; LAP(c,n)=-5; LAP(c,nn)=4; LAP(c,nnn)=-1;
         elseif j==N; LAP(c,c)=0; LAP(c,e)=1; LAP(c,w)=1; LAP(c,s)=-5; LAP(c,ss)=4; LAP(c,sss)=-1;
 
