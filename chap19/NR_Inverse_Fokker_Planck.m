@@ -52,8 +52,8 @@ for i=1:N
     for j=1:N
         xv=[x(i); y(j)];
         p(i,j) = ((2*pi)^2*det(sigma))^(-1/2)*exp(-(xv-xvbar)'*inv(sigma)*(xv-xvbar)/2);
-        gx(i,j)= -(xv(1)-xvbar(1))/(var(1)*2);
-        gy(i,j)= -(xv(2)-xvbar(2))/(var(2)*2);
+        gx(i,j)= -(xv(1)-xvbar(1))/(var(1));
+        gy(i,j)= -(xv(2)-xvbar(2))/(var(2));
         h(i,j) = alpha*(-1/var(1)^2 + (xv(1)-xvbar(1))^2/var(1)^2 ...
                         -1/var(2)^2 + (xv(2)-xvbar(2))^2/var(2)^2);
     end
