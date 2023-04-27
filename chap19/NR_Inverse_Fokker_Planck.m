@@ -6,7 +6,7 @@
 
 clear; close all; format compact; N=101, L=6, d=L/(N-1); x=[-L/2:d:L/2]; y=[-L/2:d:L/2];
 xvbar=[0; 0]; var=[1; 1]; alpha=1; [p,gx,gy,h,phi_exact]=gaussian(N,x,y,xvbar,var,alpha);
-integral_of_p=sum(p,'all')*d^2l Z=zeros(N*N,N*N); LAP=Z; NABx=Z; NABy=Z;
+integral_of_p=sum(p,'all')*d^2; Z=zeros(N*N,N*N); LAP=Z; NABx=Z; NABy=Z;
 for i=1:N
     for j=1:N
         % First identify center, north, south, east, and west points
