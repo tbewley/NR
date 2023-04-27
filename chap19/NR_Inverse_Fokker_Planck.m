@@ -4,10 +4,9 @@
 % We take the second derivative in the wall-normal direction equal to zero at the walls.
 % By Thomas Bewley, April 26 2023
 
-clear; N=101, L=6; d=L/(N-1); x=[-L/2:d:L/2]; y=[-L/2:d:L/2]; verbose=false
+clear; format compact; N=101, L=6, d=L/(N-1); x=[-L/2:d:L/2]; y=[-L/2:d:L/2]; verbose=false;
 xvbar=[0; 0]; var=[1; 1]; alpha=1; [p,gx,gy,h,phi_exact]=gaussian(N,x,y,xvbar,var,alpha);
 integral_of_p=sum(p,'all')*d^2
-integral_of_p=sum(h,'all')*d^2
 Z=zeros(N*N,N*N); LAP=Z; NABx=Z; NABy=Z;
 for i=1:N
     for j=1:N
