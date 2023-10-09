@@ -10,7 +10,7 @@ clear; name = strvcat('EE','IE','CN','RK2','RK3','RK4','AB2','AB3','AB4','AB5','
                'CNtheta','CNphi','IMEXDIRK','IMEXERK','RKC1s5','RKC1s10','RKC1s20',   ...
                'RKC2s5','RKC2s10','RKC2s20','RKC2s5e15','RKC2s10e15','RKC2s20e15');
 Np=201; V=[1 1.0000000001]; close all;
-for k=50:50
+for k=1:6
   switch k    % Set up region in the sigma plane over which to plot the stability boundary
     case {1,2,3},                   B=[ -2.55; 2.05; -2.25; 2.25];  % EE, IE, CN
     case {4,5,6},                   B=[ -4.05; 2.05; -3.05; 3.05];  % RK2-4
