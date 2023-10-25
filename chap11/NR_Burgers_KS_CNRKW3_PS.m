@@ -16,7 +16,7 @@ hb2=h_bar/2; hbbb=beta_bar.*h_bar; hbzb=zeta_bar.*h_bar; Imhb2=1-h_bar/2;
 for k=1:Tmax/dt
   for rk=1:3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ALL 3 RK SUBSTEPS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
     uhat(fix(N/3)+1:end)=0;  % Dealias (see Section 5.7).
-    r=NR_RFFTinv(uhat,N); r=-r.*r; rhat=i*kx.*NR_RFFT(r,N);                % Leading-order cost:
+    r=NR_RFFTinv(uhat,N); r=-r.*r; rhat=i*kx.*NR_RFFT(r,N);          % Leading-order cost:
     if (rk==1)                                                       % 2 FFTs per RK step
       uhat=(uhat+hb2(rk)*Aop.*uhat+hbbb(rk)*rhat)./(1-hb2(rk)*Aop);
     else        % Implement (10.64); note that the "solve" is now simply scalar division!
@@ -27,7 +27,7 @@ for k=1:Tmax/dt
   rs(k,:)=NR_RFFTinv(uhat,N)'; ts(k)=k*dt; % These variables are just used for plotting...
   if (mod(k,PlotInt)==0) 
     pause(0.001); NR_PlotXY(x,rs(k,:),k*dt,0,L,-1.5,1.5);
-    % Comment out the lines below to make some additional interesting plots.
+    % Uncomment the lines below to make some additional interesting plots.
     % figure(2); semilogy(kx(1:fix(N/3)),abs(uhat(1:fix(N/3))).^2); axis([0 3 1e-8 1e-1])
     % figure(3); loglog(kx(1:fix(N/3)),abs(uhat(1:fix(N/3))).^2); axis([3e-2 4 1e-8 1e-1])
   end

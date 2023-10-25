@@ -30,5 +30,4 @@ disp(' '), disp('DTConstructibility form:')
 [Acs,Bcs,Ccs,Dcs]=NR_TF2SS(b,a,'DTConstructibility'); NR_ShowSys(Acs,Bcs,Ccs,Dcs)
 [bcs,acs]=NR_SS2TF(Acs,Bcs,Ccs,Dcs); ERRORcs=norm(b-bcs)+norm(a-acs)
 
-disp(' '); disp('Next <a href="matlab:help NRchap20">NRchap20</a> demo: <a href="matlab:NR_CtrbMatrixTest">NR_CtrbMatrixTest</a>'), disp(' ')
 % end script NR_TF2SSTest
