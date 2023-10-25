@@ -1,6 +1,6 @@
 function NR_Burgers_KS_CNRKW3_PS_KF
-% function <a href="matlab:NR_Burgers_KS_CNRKW3_PS">NR_Burgers_KS_CNRKW3_PS</a>
-% UNFINISHED.  KF is for Kalman Filtering; the idea is to simulate both the state and the
+% function NR_Burgers_KS_CNRKW3_PS
+% *** UNFINISHED *** KF is for Kalman Filtering; the idea is to simulate both the state and the
 % estimate, and show that (with the appropriate KF feedback applied) the estimate converges
 % to the state.
 % Simulate the 1D Burgers or KS equation on 0<x<L with periodic BCs using CN/RKW3 in time
