@@ -1,8 +1,8 @@
 function [int,evals] = IntAdaptive(f,a,c,epsilon,evals,fa,fb,fc)
 % Integrate f(x) over the interval [a,c] using adaptive integration, taking b=(a+c)/2,
 % where (fa,fb,fc) are the evalations at (a,b,c) and epsilon is the desired accuracy.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.4.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap09">Chapter 9</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.4.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap09">Chapter 9</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also IntTrapezoidal, IntRomberg.  Verify with: IntAdaptiveTest.
 
 b=(a+c)/2;  d=(a+b)/2;  e=(b+c)/2;  fd=f(d);  fe=f(e);  evals=evals+2;

@@ -1,56 +1,56 @@
 % =============================== CHAPTER 4: LINEAR ALGEBRA ===============================
 % Attendant to the text <a href="matlab:web('http://numerical-renaissance.com/')">Numerical Renaissance: simulation, optimization, & control</a>
-% Files in Chapter 4 of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>:
+% Files in NRchap4 of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>:
 %   Bidiagonalization          - function [A,U,V] = Bidiagonalization(A,m,n)
 %   BidiagonalizationTest      - script BidiagonalizationTest
-%   NR_CALE                       - function X=NR_CALE(A,Q)
-%   NR_CALEtest                   - script NR_CALEtest
-%   NR_CARE                       - function X=NR_CARE(A,S,Q)
-%   NR_CAREtest                   - script NR_CAREtest
+%   RC_CALE                       - function X=RC_CALE(A,Q)
+%   RC_CALEtest                   - script RC_CALEtest
+%   RC_CARE                       - function X=RC_CARE(A,S,Q)
+%   RC_CAREtest                   - script RC_CAREtest
 %   Cholesky                   - function [A] = Cholesky(A,n)
 %   CholeskyIncomplete         - function [A] = CholeskyIncomplete(A,n)
 %   CholeskyIncompleteTest     - script CholeskyIncompleteTest
 %   CholeskyTest               - script CholeskyTest
-%   NR_DALE                       - function X=NR_DALE(F,Q,n)
-%   NR_DALEtest                   - script NR_DALEtest
-%   NR_DARE                       - function X=NR_DARE(F,S,Q,n)
-%   NR_DAREdoubling               - function X=NR_DAREdoubling(F,S,Q,n,steps)
-%   NR_DAREtest                   - script NR_DAREtest
-%   NR_Eig                        - function [lam,S]=NR_Eig(S,type)
-%   NR_EigGeneral                 - function [lam] = NR_EigGeneral(A)
-%   NR_EigGeneralTest             - script NR_EigGeneralTest
-%   NR_EigHermitian               - function [lam] = NR_EigHermitian(A)
-%   NR_EigHermitianTest           - script NR_EigHermitianTest
-%   NR_EigReal                    - function [lam] = NR_EigReal(A)                            
-%   NR_EigRealTest                - script NR_EigRealTest
-%   NR_EigTest                    - script NR_EigTest
-%   NR_Hessenberg                 - function [A,V] = NR_Hessenberg(A)
-%   NR_HessenbergTest             - script NR_HessenbergTest
+%   RC_DALE                       - function X=RC_DALE(F,Q,n)
+%   RC_DALEtest                   - script RC_DALEtest
+%   RC_DARE                       - function X=RC_DARE(F,S,Q,n)
+%   RC_DAREdoubling               - function X=RC_DAREdoubling(F,S,Q,n,steps)
+%   RC_DAREtest                   - script RC_DAREtest
+%   RC_Eig                        - function [lam,S]=RC_Eig(S,type)
+%   RC_EigGeneral                 - function [lam] = RC_EigGeneral(A)
+%   RC_EigGeneralTest             - script RC_EigGeneralTest
+%   RC_EigHermitian               - function [lam] = RC_EigHermitian(A)
+%   RC_EigHermitianTest           - script RC_EigHermitianTest
+%   RC_EigReal                    - function [lam] = RC_EigReal(A)                            
+%   RC_EigRealTest                - script RC_EigRealTest
+%   RC_EigTest                    - script RC_EigTest
+%   RC_Hessenberg                 - function [A,V] = RC_Hessenberg(A)
+%   RC_HessenbergTest             - script RC_HessenbergTest
 %   QRcgs                      - function [A,R] = QRcgs(A)
 %   QRcgsTest                  - script QRcgsTest
-%   NR_QRFastGivensHessenberg     - function [A,Q] = NR_QRFastGivensHessenberg(A) 
-%   NR_QRFastGivensHessenbergTest - script NR_QRFastGivensHessenbergTest
-%   NR_QRGivensHessenberg         - function [A,Q] = NR_QRGivensHessenberg(A)
-%   NR_QRGivensHessenbergTest     - script NR_QRGivensHessenbergTest
+%   RC_QRFastGivensHessenberg     - function [A,Q] = RC_QRFastGivensHessenberg(A) 
+%   RC_QRFastGivensHessenbergTest - script RC_QRFastGivensHessenbergTest
+%   RC_QRGivensHessenberg         - function [A,Q] = RC_QRGivensHessenberg(A)
+%   RC_QRGivensHessenbergTest     - script RC_QRGivensHessenbergTest
 %   QRGivensTridiag            - function [b,c,a,cc,ss] = QRGivensTridiag(a,b,c)
 %   QRGivensTridiagTest        - script QRGivensTridiagTest
 %   QRHouseholder              - function [A,Q,pi,r] = QRHouseholder(A)
 %   QRHouseholderTest          - script QRHouseholderTest
 %   QRmgs                      - function [A,R,pi,r] = QRmgs(A)
 %   QRmgsTest                  - script QRmgsTest
-%   NR_RDE                        - function X=NR_RDE(X,F,S,Q,n,steps)
-%   NR_RDEtest                    - script NR_RDEtest
-%   NR_ReorderSchur               - function [U,T]=NR_ReorderSchur(U,T,type,e)
-%   NR_ReorderSchurTest           - script NR_ReorderSchurTest
-%   NR_Roots                      - function x = NR_Roots(a)
-%   NR_RootsTest                  - script NR_RootsTest
-%   NR_Schur                      - function [U,T]=NR_Schur(U,type)
-%   NR_SchurTest                  - script NR_SchurTest
-%   NR_ShiftedInversePower        - function [S,T] = NR_ShiftedInversePower(A,mu)
-%   NR_ShiftedInversePowerTest    - script NR_ShiftedInversePowerTest
+%   RC_RDE                        - function X=RC_RDE(X,F,S,Q,n,steps)
+%   RC_RDEtest                    - script RC_RDEtest
+%   RC_ReorderSchur               - function [U,T]=RC_ReorderSchur(U,T,type,e)
+%   RC_ReorderSchurTest           - script RC_ReorderSchurTest
+%   RC_Roots                      - function x = RC_Roots(a)
+%   RC_RootsTest                  - script RC_RootsTest
+%   RC_Schur                      - function [U,T]=RC_Schur(U,type)
+%   RC_SchurTest                  - script RC_SchurTest
+%   RC_ShiftedInversePower        - function [S,T] = RC_ShiftedInversePower(A,mu)
+%   RC_ShiftedInversePowerTest    - script RC_ShiftedInversePowerTest
 %   SVD                        - function [S,U,V,r] = SVD(A)
 %   SVDTest                    - script SVDTest
-%   NR_Sylvester                  - function X=NR_Sylvester(A,B,C,g,m,n)
-%   NR_SylvesterTest              - script NR_SylvesterTest
-%   NR_WireTest                   - function NR_WireTest
-% <a href="matlab:help NRchap03"><-previous</a> ========== please read the <a href="matlab:help NRcopyleft">copyleft</a>, and please <a href="matlab:help NRsupport">support</a> us! =========== <a href="matlab:help NRchap05">next-></a>
+%   RC_Sylvester                  - function X=RC_Sylvester(A,B,C,g,m,n)
+%   RC_SylvesterTest              - script RC_SylvesterTest
+%   RC_WireTest                   - function RC_WireTest
+% <a href="matlab:help RCchap03"><-previous</a> ========== please read the <a href="matlab:help RCcopyleft">copyleft</a>, and please <a href="matlab:help RCsupport">support</a> us! =========== <a href="matlab:help RCchap05">next-></a>

@@ -1,7 +1,7 @@
 % script <a href="matlab:Plot2DMeshTest">Plot2DMeshTest</a>
 % Test <a href="matlab:help Plot2DMesh">Plot2DMesh</a> by constructing an interesting 2D grid.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap08">Chapter 8</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap08">Chapter 8</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also Stretch1DMeshTest.  Depends on Stretch1DMesh.
 
 im=sqrt(-1); n=30; w=[0:1/(n-1):1];

@@ -1,10 +1,10 @@
-function [D,index]=NR_BlockInsertionSort(D,v,n)
-% function [D,index]=NR_BlockInsertionSort(D,v,n)
+function [D,index]=RC_BlockInsertionSort(D,v,n)
+% function [D,index]=RC_BlockInsertionSort(D,v,n)
 % Reorder a matrix D based on the elements in its first column using a block insertion sort.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.2.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also NR_InsertionSort, NR_MergeSort, NR_QuickSort, NR_HeapSort, NR_CocktailSort,
-% NR_BitonicSort, NR_OddEvenNR_MergeSort.  Verify with NR_BlockInsertionSortTest.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.2.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap07">Chapter 7</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
+% See also RC_InsertionSort, RC_MergeSort, RC_QuickSort, RC_HeapSort, RC_CocktailSort,
+% RC_BitonicSort, RC_OddEvenRC_MergeSort.  Verify with RC_BlockInsertionSortTest.
 
 n=size(D,1); if nargout==2, D=[D, [1:n]']; end
 k=n; while k>1 & D(k,1)>=0, k=k-1; end, j=k-1; i=j;
@@ -20,7 +20,7 @@ if k>1, while i>0                     % Determine a<0 block [j+1:k] and a>=0 blo
   if v, Draw(k,i+k-j,i,D,n), end, pause(0.3);
 k=i+k-j; j=i-1; end, end                                                 
 if nargout==2, index=round(D(:,end)); D=D(:,1:end-1); end
-end % function NR_BlockInsertionSort
+end % function RC_BlockInsertionSort
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function Draw(a,b,c,D,n)
 a=a+.5; b=b+.5; c=c+.5; fill([a b b a],[0 0 3 3],'y'); hold on

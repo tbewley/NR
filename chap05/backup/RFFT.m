@@ -1,8 +1,8 @@
 function [uh]=RFFT(u,N)
 % function [uh]=RFFT(u,N)
 % This routine was written by substituting RFFT2.m into RFFT1.m and simplifying.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFTinv, RFFT1, RFFT2.  Verify with: RFFTtest.
 
 wh=FFTdirect(u(1:2:N-1)+i*u(2:2:N),N/2,-1);

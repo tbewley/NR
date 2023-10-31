@@ -4,8 +4,8 @@ function x=FFTdirect(x,N,g)
 % At each stage, defining Ns=2^stage, the elements divide into N/Ns groups, each with Ns
 % elements.  Each group is split in half and combined as in Fig 5.2.
 % The corresponding wavenumber vector is:  k=(2*pi/L)*[[0:N/2]';[-N/2+1:-1]'].
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.4.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.4.1.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also FFTrecursive, FFTnonreordered.  Verify with: FFTdirectTest.
 
 s=log2(N);              % number of stages 

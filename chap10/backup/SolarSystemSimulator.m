@@ -1,8 +1,8 @@
 function [qs,energy]=SolarSystemSimulator
 % function <a href="matlab:SolarSystemSimulator">SolarSystemSimulator</a>
 % Simulate the evolution of the solar system using SI4 (or RK4).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.6.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap10">Chapter 10</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.6.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap10">Chapter 10</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 
 method='SI4';                        % Try 'SI4' or 'RK4' (but check Figure 10.22 first!)
 Tmax=1.8808;                         % Exact total simulation time, in sidereal years

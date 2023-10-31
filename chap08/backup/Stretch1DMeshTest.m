@@ -1,7 +1,7 @@
 % script <a href="matlab:Stretch1DMeshTest">Stretch1DMeshTest</a>
 % Test <a href="matlab:help Stretch1DMesh">Stretch1DMesh</a> by constructing a few interesting 1D grids.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap08">Chapter 8</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 8.1.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap08">Chapter 8</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also Plot2DMeshTest.
 
 clear; x=[0:.1:1]; n=length(x); a=ones(n,1); off=1.5; xmin=0; xmax=1; close all

@@ -2,7 +2,7 @@ function [S,U,V,r] = ReducedSVD(A)
 % function [S,U,V,r] = ReducedSVD(A)
 % Compute the reduced SVD, A=U*S*V', and rank, r, of a (possibly nonsquare) matrix A.
 % Uses Bidiagonalization, Rotate, RotateApply.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 tol=1e-15; [m,n]=size(A);
 if m<n

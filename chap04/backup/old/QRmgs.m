@@ -2,7 +2,7 @@ function [A,R,pi,r] = QRmgs(A)
 % function [A,R,pi,r] = QRmgs(A)
 % Compute an ordered reduced QR decomposition A*Pi=Q*R, and rank, of ANY mxn matrix A via
 % Modified Gram-Schmidt (Q is returned in the modified A).  Pivoting is implemented.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 [m,n]=size(A);  R=zeros(n,n);  pi=[1:n]'; tol=1e-14;
 for i=1:n

@@ -2,7 +2,7 @@ function [A,R] = QRcgs(A)
 % function [A,R] = QRcgs(A)
 % Compute a reduced QR decomposition A=Q*R of an mxn matrix A via Classical Gram-Schmidt.
 % Pivoting is NOT implemented, so A must have full column rank (ie, m>=n and rank(A)=n).
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 [m,n]=size(A);  R=zeros(n,n);      %  Note: Q is returned in the modified A.
 for i=1:n

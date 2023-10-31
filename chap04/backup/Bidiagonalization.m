@@ -2,7 +2,7 @@ function [A,U,V] = Bidiagonalization(A,m,n)
 % function [A,U,V] = Bidiagonalization(A,m,n)
 % Pre and post-multiply an mxn matrix A by a sequence of Householder reflections
 % to reduce it to upper bidiagonal form B, thus computing the decomposition A=U B V^H.
-% Numerical Renaissance Codebase 1.0, Chapter 1; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap1; see text for copyleft info.
 
 V=eye(n,n); U=eye(m,m); 
 for i=1:min(m,n)

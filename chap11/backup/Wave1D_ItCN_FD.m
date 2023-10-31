@@ -1,4 +1,4 @@
-function NR_Wave1D_ItCN_FD                              % Numerical Renaissance Codebase 1.0
+function RC_Wave1D_ItCN_FD                              % Numerical Renaissance Codebase 1.0
 % This script simulates the 1D Wave equation with periodic boundary conditions.
 % Iterative CN timestepping is used with a FD method in space.
 % ------------------ Initialize the simulation paramters (user input)  -------------------
@@ -12,4 +12,4 @@ for n=1:Tmax/dt
   end
   t=t+dt; q=qs; v=vs; PlotXY(x,q,t,-L/2,L/2,-0.2,1.2);
 end
-end % function NR_Wave1D_ItCN_FD
+end % function RC_Wave1D_ItCN_FD

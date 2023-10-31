@@ -1,7 +1,7 @@
 function [S,U,V,r] = SVD(A)
 % function [S,U,V,r] = SVD(A)
 % Compute the reduced SVD and rank of any matrix A.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 [m,n]=size(A); if m<n, [S,V,U,r]=SVD(A'); else
 tol=1e-15; p=1; q=n; [A,U,V]=Bidiagonalization(A,m,n);

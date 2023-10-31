@@ -1,4 +1,4 @@
-function FS_NRCSD                                    % Numerical Renaissance Codebase 1.0
+function FS_RCCSD                                    % Numerical Renaissance Codebase 1.0
 figure(1); clf; axis([0 1 0 6]); hold on; format compact;
 ep=1e-14; epim=ep*sqrt(-1);  f3=0.0035;
 m=[-.09042 -.0892 -.086 -.08 -.07 -.058 -.04 -.02 0 .035 .075 .13 .225 .39 .67 1.15 2.4]';
@@ -12,4 +12,4 @@ for j=1:size(m,1);       % Loop over several interesting values of m;
   end
   disp(sprintf('Error in terminal condition = %0.5g',FS_March(f3,1,m(j)))); pause(0.001);
 end
-end % function FS_NRCSD.m
+end % function FS_RCCSD.m

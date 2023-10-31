@@ -5,8 +5,8 @@ function x=FFTnonreordered(x,N,g)
 % representation out of, and then back into, bit reversed order, thereby reducing both
 % storage and execution time (see Figure 4.3).  The corresponding wavenumber vector is
 % t=(2*pi/L)*[[0:N/2]';[-N/2+1:-1]']; k=t(1+bin2dec(fliplr(dec2bin([0:N-1]',s))))
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.4.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.4.1.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also FFTrecursive, FFTdirect.  Verify with: FFTnonreorderedTest.
 
 s=log2(N);       % Number of stages.

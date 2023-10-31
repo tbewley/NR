@@ -5,7 +5,7 @@ function [bv,cv,av,type,alpha,beta,d] = QRFastGivensTridiagonal(av,bv,cv,m)
 % elements.  The result returned is the three nonzero diagonals [bv,cv,av] of the 
 % upper tridiagonal matrix R and the m-1 values of [type,alpha,beta] parameterizing 
 % each transform performed, along with the corresponding d vector.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 d=ones(m,1);
 for i=1:m-1

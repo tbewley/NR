@@ -1,7 +1,7 @@
 % script CholeskyIncompleteTest
 % Test CholeskyIncomplete (and compare with Cholesky) on a positive-definite sparse
 % matrix given by a finite-difference discretization of the 2D Helmholtz eqn. [see (1.5)]
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 n=5; m=5; c=.01; A=zeros(m*n,m*n); C=-c*diag(ones(n,1),0);
 B=(1+4*c)*diag(ones(n,1),0)-c*diag(ones(n-1,1),-1)-c*diag(ones(n-1,1),1);

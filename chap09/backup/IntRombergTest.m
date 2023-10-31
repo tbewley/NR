@@ -1,8 +1,8 @@
 function IntRombergTest
 % function <a href="matlab:IntTrapezoidalTest">IntTrapezoidalTest</a>
 % Test <a href="matlab:help IntTrapezoidal">IntTrapezoidal</a> on a representative scalar function.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap09">Chapter 9</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap09">Chapter 9</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also IntRombergTest, IntAdaptiveTest.
 
 disp('Testing the Romberg integration method.')

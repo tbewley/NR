@@ -1,8 +1,8 @@
 function [u]=RFFT3Dinv(uhat,NX,NY,NZ)
 % function [u]=RFFT3Dinv(uhat,NX,NY,NZ)
 % Compute the inverse 3D FFT of the input uhat.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFT3D.  Verify with: RFFT3Dtest.
 
 if NZ>1; for I=1:NX/2; for J=1:NY; uhat(I,J,:)=FFTdirect(uhat(I,J,:),NZ,1); end; end; end

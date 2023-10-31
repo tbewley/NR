@@ -1,6 +1,6 @@
 % script QRHouseholderTest
 % Test QRHouseholder on a random system.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
 clear; m=5; n=4; A=randn(m,n)+i*randn(m,n); A(:,3)=A(:,1);
 

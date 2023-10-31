@@ -4,8 +4,8 @@ function [u]=RFFT1inv(uhat,N)
 % for the wavenumbers 0 to N/2.  
 % OUTPUT: u is a real array of length N=2^s.
 % This routine was written by inverting the steps of RFFT1 and doing them in reverse.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFT1.  Verify with: RFFT1Test.
 
 uehat(1)=real(uhat(1))+imag(uhat(1))+i*real(uhat(N/4+1))*2;

@@ -1,11 +1,11 @@
-function [lam] = NR_EigHermitian(A)
-% function [lam] = NR_EigHermitian(A)
+function [lam] = RC_EigHermitian(A)
+% function [lam] = RC_EigHermitian(A)
 % Compute the eigenvalues of a Hermitian (or, if real, symmetric) matrix A.
-% Leveraging the fact that NR_Hessenberg returns a tridiagonal matrix, the QR algorithm
+% Leveraging the fact that RC_Hessenberg returns a tridiagonal matrix, the QR algorithm
 % with Wilkenson shifts is applied to the tridiagonal matrix T=tridiag[a,b,c] at each step.
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
-A=NR_Hessenberg(A); n=size(A,1); q=n; tol=1e-13;    % Note: we move the 3 nonzero diagonals to
+A=RC_Hessenberg(A); n=size(A,1); q=n; tol=1e-13;    % Note: we move the 3 nonzero diagonals to
 a=[0; diag(A,-1)]; b=diag(A); c=[diag(A,1); 0];  % vectors to speeed the memory access.
 while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elements of T.
   for i=1:n-1; if abs(a(i+1))< tol*(abs(b(i))+abs(b(i+1))); a(i+1)=0; end; end
@@ -22,4 +22,4 @@ while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elem
     b(i+1) =                    conj(cc(i))*b(i+1); b(i)=temp; 
   end, end,  a(2:n)=conj(c(1:n-1)); b=b+mu;                    % Unshift A
 end, lam=real(b);                % Remove any error in the complex part of the eigenvalues.
-end % function NR_EigHermitian
+end % function RC_EigHermitian

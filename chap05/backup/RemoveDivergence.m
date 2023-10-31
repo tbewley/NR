@@ -2,8 +2,8 @@ function [v1hat,v2hat,v3hat]=RemoveDivergence(v1hat,v2hat,v3hat,NX,NY,NZ,KX,KY,K
 % function [v1hat,v2hat,v3hat]=RemoveDivergence(v1hat,v2hat,v3hat,NX,NY,NZ,KX,KY,KZ)
 % Remove the divergence of a periodic 3D vector field on a uniform grid.
 % The input and output are in Fourier space, where the operations performed are simple.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also ComputeDivergence.  Verify with: RemoveDivergenceTest.
 
 for I=1:NX/2; for J=1:NY; for K=1:NZ

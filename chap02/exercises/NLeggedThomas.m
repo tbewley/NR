@@ -12,7 +12,7 @@ function [G,e] = NLeggedThomas(A,B,C,G,d,e,n,p)
 % diagonals of the p x p+1 tridiagonal matrices A_i.  d is a row vector of length n+1.
 % {X,G} are tensors of size p x n x m.  {y,e} are row vectors of length m.
 %
-% Numerical Renaissance Codebase 1.0, Chapter 2; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap2; see text for copyleft info.
 
 % STEP 1. apply the forward sweeps of Thomas to the A_i problems for i=1,...,n.
 % Note that the following loop can be executed on n separate CPUs, if available.

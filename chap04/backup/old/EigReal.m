@@ -1,13 +1,13 @@
-function [lam] = NR_EigReal(A)                            
-% function [lam] = NR_EigReal(A)                            
-% Compute the eigenvalues of a nonsymmetric real matrix A. After an initial NR_Hessenberg
+function [lam] = RC_EigReal(A)                            
+% function [lam] = RC_EigReal(A)                            
+% Compute the eigenvalues of a nonsymmetric real matrix A. After an initial RC_Hessenberg
 % decomposition, several double implicitly-shifted QR steps are taken, building up as much
-% of the real NR_Schur decomposition as necessary in order to determine the eigenvalues.
-% (That is, for efficiency, we do not build the full real NR_Schur decomposition, but rather
+% of the real RC_Schur decomposition as necessary in order to determine the eigenvalues.
+% (That is, for efficiency, we do not build the full real RC_Schur decomposition, but rather
 % work just on T_22 at each iteration). 
-% Numerical Renaissance Codebase 1.0, Chapter 4; see text for copyleft info.
+% Numerical Renaissance Codebase 1.0, NRchap4; see text for copyleft info.
 
-A=NR_Hessenberg(A); n=size(A,1); q=n; tol=1e-12;
+A=RC_Hessenberg(A); n=size(A,1); q=n; tol=1e-12;
 while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elements of T.
   for i=1:n-1; if abs(A(i+1,i))< tol*(abs(A(i,i))+abs(A(i+1,i+1))); A(i+1,i)=0; end; end
   q=1; for i=n-1:-1:1; if A(i+1,i)~=0, q=i+1; break, end, end, if q==1, continue, end                                                     
@@ -25,8 +25,8 @@ while q>1        % Note: diagonal of T_22 block extends from {p,p} to {q,q} elem
   A=Reflect(A,sig,w,p,p+2,p,min(p+3,q),'R');       % Compute V_0^H T V_0
   for k=p:q-2;  km=min(k+3,q); kn=min(k+4,q);   % Transform the rest of T_22
     [sig,w]=ReflectCompute(A(k+1:km,k));        % via Implicit Q, returning it to                            
-    A=Reflect(A,sig,w,k+1,km,k,q,'L');          % upper NR_Hessenberg form.
+    A=Reflect(A,sig,w,k+1,km,k,q,'L');          % upper RC_Hessenberg form.
     A=Reflect(A,sig,w,k+1,km,p,min(k+4,q),'R');          
   end
 end, lam=diag(A);                       % Extract eigenvalues from main diagonal of result.
-end % function NR_EigReal
+end % function RC_EigReal

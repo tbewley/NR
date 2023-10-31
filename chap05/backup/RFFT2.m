@@ -6,8 +6,8 @@ function [uhat,vhat]=RFFT2(u,v,N)
 % coefficients are real, so the N/2 coefficients (at the Nyquist frequency) 
 % are stored in the imaginary part of the the 0 coefficients.
 % To remove them, just set, e.g., uhat(1)=real(uhat(1)).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFT2inv, RFFT1, RFFT.  Verify with: RFFT2Test.
 
 w=u+i*v;                                      % Combine u and v into a single complex

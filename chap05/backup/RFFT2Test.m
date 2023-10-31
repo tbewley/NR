@@ -1,7 +1,7 @@
 % script <a href="matlab:RFFT2Test">RFFT2Test</a>
 % Test <a href="matlab:help RFFT2">RFFT2</a> and <a href="matlab:help RFFT2inv">RFFT2inv</a> with random u and v.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFT1Test, RFFTTest.
 
 disp('Now testing RFFT2 and RFFT2inv on two random real vectors')

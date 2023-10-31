@@ -6,8 +6,8 @@ function [x,t]=RK435_2R(R,x,t,s,p,v,SimPlot)
 % The simulation parameters are s.T (time interval of simulation) and s.h (timestep).
 % The function parameters p, whatever they are, are simply passed along to R.
 % If v<>0, SimPlot is called at each timestep to make interactive plots.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.4.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap10">Chapter 10</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 10.4.1.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap10">Chapter 10</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RK2, RK4, RK45, RKW3_2R, RK435_3R, RK548_3R.  Verify with RKtest.
 
 a21=  970286171893/ 4311952581923; a32= 6584761158862/12103376702013;

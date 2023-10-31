@@ -1,7 +1,7 @@
 % script <a href="matlab:RFFT3DTest">RFFT3DTest</a>
 % Test <a href="matlab:help RFFT3D">RFFT3D</a> and <a href="matlab:help RFFT3Dinv">RFFT3Dinv</a> on a real 2D field that looks like an egg carton.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.10.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFTtest.
 
 disp('Now testing RFFT3D and RFFT3Dinv on a real 2D field that looks like an egg carton')

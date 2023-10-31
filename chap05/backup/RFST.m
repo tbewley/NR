@@ -4,8 +4,8 @@ function [uhatS]=RFST(u,N)
 % OUTPUT: uhatS is a real column vector of length N-1. 
 % This code combines the u_j according to (5.47a), computes its RFFT, 
 % then extracts the uhat^s_n according to (5.47b).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.11.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.11.1.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFSTinv, RFCT, RFFT.  Verify with: RFSTtest.
 
 w(1)=0; w(2:N)=(u(N-1:-1:1)-u)+(u+u(N-1:-1:1)).*sin([1:N-1]'*pi/N);

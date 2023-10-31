@@ -2,8 +2,8 @@
 % Calculates the eigenvectors of the (defective, stable) LQG composite system matrix, the
 % large transient energy growth, the diminishing gain margin, and the characteristic
 % polynomial of the Doyle79 model.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 21.1.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap21">Chapter 21</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 21.1.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap21">Chapter 21</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 
 disp('Consider the poorly-behaved LQG composite system matrix identified in Doyle79.')
 

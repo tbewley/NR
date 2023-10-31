@@ -1,8 +1,8 @@
 function [int,evals] = IntRomberg(func,L,R,toplevel) % Numerical Renaissance Codebase 1.0
 % Integrate func from x=L to x=R using Romberg integration, thus providing higher
 % and higher order of accuracy as the grid is refined.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap09">Chapter 9</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 9.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap09">Chapter 9</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also IntTrapezoidal, IntAdaptive.  Verify with: IntRombergTest.
 
 evals=0;  f=[];

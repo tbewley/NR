@@ -1,10 +1,10 @@
-function [D,index]=NR_CocktailSort(D,v,n)
-% function [D,index]=NR_CocktailSort(D,v,n)
+function [D,index]=RC_CocktailSort(D,v,n)
+% function [D,index]=RC_CocktailSort(D,v,n)
 % Reorder a matrix D based on the elements in its first column using a cocktail sort.
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.3.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap07">Chapter 7</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
-% See also NR_InsertionSort, NR_BlockInsertionSort, NR_MergeSort, NR_QuickSort, NR_HeapSort,
-% NR_BitonicSort, NR_OddEvenNR_MergeSort.  Verify with NR_CocktailSortTest.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 7.1.3.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap07">Chapter 7</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
+% See also RC_InsertionSort, RC_BlockInsertionSort, RC_MergeSort, RC_QuickSort, RC_HeapSort,
+% RC_BitonicSort, RC_OddEvenRC_MergeSort.  Verify with RC_CocktailSortTest.
 
 n=size(D,1); if nargout==2, D=[D, [1:n]']; end, l=1; r=n;
 while r>l
@@ -20,4 +20,4 @@ while r>l
   end, l=a+1;
 end
 if nargout==2, index=round(D(:,end)); D=D(:,1:end-1); end
-end % function NR_CocktailSort
+end % function RC_CocktailSort

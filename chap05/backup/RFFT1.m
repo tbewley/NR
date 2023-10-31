@@ -5,8 +5,8 @@ function [uhat]=RFFT1(u,N)
 % for the wavenumbers 0 to N/2.  As u is real, its 0 and N/2 coefficients are real,
 % so the N/2 coefficient (at the "oddball wavenumber") is stored in the imaginary
 % part of the the 0 coefficient.  To remove it, just set uhat(1)=real(uhat(1)).
-% See <a href="matlab:NRweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
-% Part of <a href="matlab:help NRC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help NRchap05">Chapter 5</a>; please read the <a href="matlab:help NRcopyleft">copyleft</a>.
+% See <a href="matlab:RCweb">Numerical Renaissance: simulation, optimization, & control</a>, Section 5.5.
+% Part of <a href="matlab:help RCC">Numerical Renaissance Codebase 1.0</a>, <a href="matlab:help RCchap05">Chapter 5</a>; please read the <a href="matlab:help RCcopyleft">copyleft</a>.
 % See also RFFT1inv, RFFT2, RFFT.  Verify with: RFFT1Test.
 
 [uehat,uohat]=RFFT2(u(1:2:N-1),u(2:2:N),N/2);  % Compute FFTs of the even and
